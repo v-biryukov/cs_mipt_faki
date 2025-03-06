@@ -1,18 +1,16 @@
 /* 
     Программа, которая обрабатывает нажатия и отпускания клавиш.
     При нажатии на левую кнопку мыши кружок меняет свой цвет на красный.
-    При отпускании левой кнопки мыши кружок меняет свой цвет на зелёный.
+    При отпускании левой кнопки мыши кружок меняет свой цвет на белый.
 */
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(600, 600), "Mouse Button Pressed or Relesed");
+    sf::RenderWindow window(sf::VideoMode(800, 800), "Mouse Button Pressed or Relesed");
     window.setFramerateLimit(60);
-
-    sf::CircleShape circle(100);
+    sf::CircleShape circle(200);
     circle.setPosition({200, 200});
 
     while (window.isOpen()) 
@@ -26,19 +24,13 @@ int main()
             if (event.type == sf::Event::MouseButtonPressed)
             {
                 if (event.mouseButton.button == sf::Mouse::Left)
-                {
-                    std::cout << "LMB is pressed" << std::endl;
-                    circle.setFillColor({200, 100, 100});
-                }
+                    circle.setFillColor(sf::Color::Red);
             }
 
             if (event.type == sf::Event::MouseButtonReleased)
             {
                 if (event.mouseButton.button == sf::Mouse::Left)
-                {
-                    std::cout << "LMB is released!" << std::endl;
-                    circle.setFillColor({100, 200, 100});
-                }
+                    circle.setFillColor(sf::Color::White);
             }
         }
 

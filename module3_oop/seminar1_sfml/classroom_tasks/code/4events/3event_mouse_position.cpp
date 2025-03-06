@@ -30,7 +30,6 @@ int main()
             {
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
-                    
                     sf::Vector2i mousePixel {event.mouseButton.x, event.mouseButton.y};
                     sf::Vector2f mousePosition = window.mapPixelToCoords(mousePixel);
 

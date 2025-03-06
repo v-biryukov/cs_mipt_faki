@@ -10,17 +10,11 @@
 #include <string>
 #include <memory>
 #include <iostream>
-#include "sfline.h"
-
+#include "sfline.hpp"
 
 class Node
 {
 public:
-    Node(sf::Vector2f& position) 
-        : mPosition{position}
-    {
-    }
-
     enum class State
     {
         Blocked,
@@ -28,16 +22,26 @@ public:
         Activated
     };
 
+protected:
+    sf::Vector2f mPosition{0, 0};
+    State mState{State::Blocked};
 
-    void addChild(const std::shared_ptr<Node>& child)
+    std::vector<std::shared_ptr<Node>> mChildren {};
+    inline static sf::Color sBlockedColor   {40, 40, 40};
+    inline static sf::Color sUnlockedColor  {80, 80, 40};
+    inline static sf::Color sActivatedColor {160, 160, 40};
+
+
+public:
+    Node(sf::Vector2f position) : mPosition{position} {}
+
+    void addChild(std::shared_ptr<Node> child)
     {
         mChildren.push_back(child);
     }
 
-    sf::Vector2f getPosition()
-    {
-        return mPosition;
-    }
+    sf::Vector2f getPosition() const {return mPosition;}
+    void setPosition(sf::Vector2f position) {mPosition = position;}
 
     void unblock()
     {
@@ -50,8 +54,6 @@ public:
         for (const auto& child : mChildren)
             child->block();
     }
-
-    virtual bool collisionTest(sf::Vector2f mouseCoords) = 0;
 
     void onMousePressed(sf::Vector2f mouseCoords)
     {
@@ -80,29 +82,23 @@ public:
             child->onMousePressed(mouseCoords);
         }
     }
+
+    virtual bool collisionTest(sf::Vector2f mouseCoords) = 0;
     virtual void draw(sf::RenderWindow& window) const = 0;
-
-protected:
-
-    sf::Vector2f mPosition {0, 0};
-    State mState = State::Blocked;
-
-    std::vector<std::shared_ptr<Node>> mChildren {};
-
-    inline static sf::Color sBlockedColor   {40, 40, 40};
-    inline static sf::Color sUnlockedColor  {80, 80, 40};
-    inline static sf::Color sActivatedColor {160, 160, 40};
 };
 
 
 class HitNode : public Node
 {
+private:
+    sf::Texture mTexture;
+    sf::Sprite mSprite;
+    float mRadius = 24;
+    bool mIsActivated = false;
+
 public:
 
-    HitNode(sf::Vector2f position) 
-        : Node{position}
-    {
-    }
+    HitNode(sf::Vector2f position) : Node{position} {}
 
     virtual sf::String getIconPath() = 0;
 
@@ -129,7 +125,13 @@ public:
         return sBlockedColor;
     }
 
-    void draw(sf::RenderWindow& window) const
+    bool collisionTest(sf::Vector2f mouseCoords) override
+    {
+        sf::Vector2f d = mPosition - mouseCoords;
+        return d.x * d.x + d.y * d.y < mRadius * mRadius;
+    }
+
+    void draw(sf::RenderWindow& window) const override
     {
         for (const auto& el : mChildren)
         {
@@ -146,20 +148,6 @@ public:
 
         window.draw(mSprite);
     }
-
-    bool collisionTest(sf::Vector2f mouseCoords) override
-    {
-        sf::Vector2f d = mPosition - mouseCoords;
-        return d.x * d.x + d.y * d.y < mRadius * mRadius;
-    }
-
-private:
-
-    sf::Texture mTexture;
-    sf::Sprite mSprite;
-
-    float mRadius = 24;
-    bool mIsActivated = false;
 };
 
 
@@ -391,11 +379,8 @@ int main()
             }
         }
 
-
         window.clear(sf::Color::Black);
         root->draw(window);
         window.display();
     }
-
-    return 0;
 }

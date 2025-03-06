@@ -1,7 +1,7 @@
 /* 
     Программа, которая обрабатывает нажатия и отпускания клавиш.
-    При нажатии на Пробел кружок меняет свой цвет на красный.
-    При отпускании клавиши Enter кружок меняет свой цвет на зелёный.
+    При нажатии на Enter кружок меняет свой цвет на красный.
+    При отпускании клавиши Enter кружок меняет цвет обратно на белый.
 */
 
 #include <SFML/Graphics.hpp>
@@ -25,10 +25,10 @@ int main()
 
             if (event.type == sf::Event::KeyPressed)
             {
-                if (event.key.code == sf::Keyboard::Space)
+                if (event.key.code == sf::Keyboard::Enter)
                 {
-                    std::cout << "Space is pressed" << std::endl;
-                    circle.setFillColor({200, 100, 100});
+                    std::cout << "Enter is pressed" << std::endl;
+                    circle.setFillColor(sf::Color{200, 100, 100});
                 }
             }
 
@@ -37,7 +37,7 @@ int main()
                 if (event.key.code == sf::Keyboard::Enter)
                 {
                     std::cout << "Enter is released!" << std::endl;
-                    circle.setFillColor({100, 200, 100});
+                    circle.setFillColor(sf::Color::White);
                 }
             }
         }

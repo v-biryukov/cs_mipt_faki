@@ -40,6 +40,4 @@ int main()
     cout << "Size of sf::Event = " << sizeof(sf::Event) << endl;
     cout << "Size of sf::Keyboard = " << sizeof(sf::Keyboard) << endl;
     cout << "Size of sf::Mouse = " << sizeof(sf::Mouse) << endl;
-
-    return 0;
 }

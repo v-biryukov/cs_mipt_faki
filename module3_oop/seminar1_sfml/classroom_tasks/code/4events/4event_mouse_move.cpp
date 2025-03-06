@@ -19,12 +19,12 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Mouse Button Pressed or Relesed");
+    sf::RenderWindow window(sf::VideoMode(800, 800), "Mouse Button Move Coordinates");
     window.setFramerateLimit(60);
 
     sf::CircleShape circle(30);
-    circle.setOrigin({30, 30});
-    circle.setPosition({200, 200});
+    circle.setOrigin({circle.getRadius(), circle.getRadius()});
+    circle.setPosition({400, 400});
 
     while (window.isOpen()) 
     {

@@ -276,7 +276,7 @@ cmake -G<генератор> <путь до CMakeLists.txt>
 \section{Основные классы библиотеки SFML}
 
 \subsection*{Классы математических векторов}
-Классы двумерных математических векторов \texttt{sf::Vector2<T>}. У них есть два публичных поля: \texttt{x} и \texttt{y}. Также, для них перегруженны операции сложения с такими же векторами и умножения на числа. Также введены \texttt{typedef}-синонимы вроде \texttt{sf::Vector2f} для \texttt{sf::Vector2<float>}, \texttt{sf::Vector2i} для \texttt{sf::Vector2<int>} и другие.
+Классы двумерных математических векторов \texttt{sf::Vector2<T>}. У них есть два публичных поля: \texttt{x} и \texttt{y}. Также, для них перегруженны операции сложения с такими же векторами и умножения на числа. Также введены \texttt{typedef}-синонимы вроде \texttt{sf::Vector2f} для \texttt{sf::Vector2<float>}, \texttt{sf::Vector2i} для \texttt{sf::Vector2<int>}.
 \begin{lstlisting}
 sf::Vector2f a {1.0, 2.0};
 sf::Vector2f b {3.0, -1.0};
@@ -293,7 +293,7 @@ sf::Vector2f d = 2 * a;     // Ошибка, нет перегрузки с чи
 \end{lstlisting}
 
 \subsection*{Класс цвета}
-Класс цвета \texttt{sf::Color}. Имеет 4 публичных поля: \texttt{r}, \texttt{g}, \texttt{b}, \texttt{a} - компоненты цвета в цветовой модели RGB и прозрачность. Есть конструктор от 3-х или 4-х аргументов. Есть перегруженные операции для сравнения и сложения цветов. Есть уже определённые цвета вроде \texttt{sf::Color::Blue} и другие.
+Класс цвета \texttt{sf::Color}. Имеет 4 публичных поля: \texttt{r}, \texttt{g}, \texttt{b}, \texttt{a} - компоненты цвета в цветовой модели RGB и прозрачность. Есть конструктор от 3-х или 4-х аргументов. Есть перегруженные операции для сравнения и сложения цветов. Есть уже определённые цвета вроде \texttt{sf::Color::Black}, \texttt{sf::Color::Blue} и другие.
 
 \begin{lstlisting}
 sf::Color a {100, 200, 50};
@@ -417,12 +417,12 @@ window.setFramerateLimit(60);
 Но нужно понимать, что этот метод ограничивает только максимальное количество fps. Если за один кадр выполняется много вычислений, то fps может просесть ниже 60. Из за этого все движения объектов в программе будет происходить медленнее. Чтобы скорость движения объектов не зависила от мощности компютера нужно высчитывать время, занятое на каждом кадре, и передвигать объект в соответствии с этим временем.
 
 
-\item В строке:
+\item В строках:
 \begin{lstlisting}[frame=none]
 sf::CircleShape circle(30);
 circle.setPosition(sf::Vector2f{100, 100});
 \end{lstlisting}
-создаём объект круга и устанавливаем его положение в точку с координатами \texttt{(100, 100)}. Учтите, что в SFML ось Y направлена сверху вних. То есть значение \texttt{y = 0} будет находится в самом верху экрана, а значение \texttt{y = 800} будет находиться в самом низу нашего экрана высотой 800 пикселей.
+создаём объект круга радиуса \texttt{30} и устанавливаем его положение в точку с координатами \texttt{(100, 100)}. Учтите, что в SFML ось Y направлена сверху вних. То есть значение \texttt{y = 0} будет находится в самом верху экрана, а значение \texttt{y = 800} будет находиться в самом низу нашего экрана высотой 800 пикселей.
 
 
 \item Дальше, со строки:
@@ -448,13 +448,13 @@ while (window.pollEvent(event))
 \begin{lstlisting}[frame=none]
 circle.move(sf::Vector2f{1, 1});
 \end{lstlisting}
-мы передвигаем кружок на один пиксель вправо по оси X и на один пиксель вниз по оси Y.
+мы передвигаем кружок на один вправо по оси X и на один вниз по оси Y.
 
 \item В строке:
 \begin{lstlisting}[frame=none]
 window.clear(sf::Color::Black);
 \end{lstlisting}
-мы закрашиваем \textit{скрытый холст} черным цветом. Это нужно делать, чтобы закрасить то, что было нарисовано на предыдущем кадре. Скрытый холст -- это просто двумерный массив из цветов пикселей размера \texttt{ширина окна x высота окна}, находящийся в памяти компьютера. После закраски скрытого холста никаких изменений на экране не произойдёт, так как скрытый холст на экран не отображается. В это время на экран отображается содержимое \textit{первичного холста}.
+мы закрашиваем \textit{скрытый холст} черным цветом. Это нужно делать, чтобы закрасить то, что было нарисовано на предыдущем кадре. Скрытый холст -- это просто двумерный массив из цветов пикселей размера \texttt{ширина окна $\times$ высота окна}, находящийся в памяти компьютера. После закраски скрытого холста никаких изменений на экране не произойдёт, так как скрытый холст на экран не отображается. В это время на экран отображается содержимое \textit{первичного холста}.
 
 
 \item В строке:
@@ -482,7 +482,7 @@ window.display();
 sf::ContextSettings settings;
 settings.antialiasingLevel = 8;
 \end{lstlisting}
-И передать \texttt{settings} на вход для конструктора \texttt{RenderWindow} четвёртым параметром. Пример в папке \texttt{code/sfml\_basics}.
+И передать \texttt{settings} на вход для конструктора \texttt{RenderWindow} четвёртым параметром. Пример в папке \texttt{code/0sfml\_basics}.
 \end{multicols}
 
 
@@ -846,7 +846,7 @@ if (sf::Mouse::isButtonPressed(sf::Mouse::Middle))
 
 \subsection*{Система координат сетки пикселей.}
 \begin{itemize}
-\item В этой системе описывается положение каждого пикселя в окне
+\item В этой системе описывается положение каждого пикселя в окне.
 \item Центр координат -- в верхнем левом углу окна. 
 \item Ось $Ox$ идёт слева направо, ось $Oy$ -- сверху вниз.
 \item Эта система целочисленная. Координаты хранятся в числах типа \texttt{int}. Для хранения точки обычно используется \texttt{sf::Vector2i}.
@@ -870,7 +870,7 @@ if (sf::Mouse::isButtonPressed(sf::Mouse::Middle))
 \item Ось $Ox$ идёт слева направо, ось $Oy$ -- сверху вниз.
 \item Эта вещественная система координат. Координаты хранятся в числах типа \texttt{float}. Для хранения точки обычно используется \texttt{sf::Vector2f}.
 \item Нижний правый угол имеет координаты, соответствующие размерам окна при запуске программы (в данному случае \texttt{(400.0, 400.0)}).
-\item При изменении размеров окна, в окно продолжается отображаться та же самая часть мира объектов.
+\item При изменении размеров окна, в окне продолжается отображаться та же самая часть мира объектов.
 Соответственно, при изменении размеров окна координаты нижнего правого угла НЕ изменятся.
 \item Эту систему координат можно перенастроить, используя класс \texttt{sf::View}.
 \end{itemize}
@@ -925,8 +925,8 @@ sf::Vector2f q = window.mapPixelToCoords(p);  // Координаты точки
 \subsection*{Класс мыши. Получение координат курсора мыши.}
 Помимо того, что класс мыши \texttt{sf::Mouse} позволяет проверить была ли нажата та или иная кнопка мыши, он также может может дать координаты курсора мыши. Для этой цели в классе \texttt{sf::Mouse} есть следующие статические методы:
 \begin{itemize}
-\item \texttt{getPosition(const sf::Window\&)} -- возвращает положение мыши на в координатах пикселей окна.
-\item \texttt{setPosition(const sf::Vector2i\&, const sf::Window\&)} --  устанавливает положение мыши в координатах пикселей окна.
+\item \texttt{getPosition(const sf::Window\&)} -- возвращает положение курсора мыши в координатах пикселей окна.
+\item \texttt{setPosition(const sf::Vector2i\&, const sf::Window\&)} --  устанавливает положение курсора мыши в координатах пикселей окна.
 \end{itemize}
 Обратите внимание, что эти функции работают в системе координат пикселей. Если вы хотите использовать координаты мыши, полученные из этих функций, в функции, которая работает в системе координат мира, то нужно будет сделать преобразование координат с помощью метода \texttt{mapPixelToCoords}.
 
@@ -967,7 +967,7 @@ int main()
 Попробуйте самостоятельно ответить на следующие вопросы:
 \begin{itemize}
 \item Что делает метод \texttt{setOrigin} класса \texttt{sf::CircleShape}? Почему в этот метод передаются именно такие значения? Что будет если убрать строку с вызовом этого метода или передать другие значения?
-\item Что если не делать преобразование координат \texttt{mapPixelToCoords}, а просто сразу передать координаты пикселя в метод \texttt{setPosition}? Будет ли программа работать корректно?
+\item Что если не делать преобразование координат \texttt{mapPixelToCoords}, а просто сразу передать координаты пикселя в метод \texttt{setPosition} как это сделано в строках ниже? Будет ли программа работать корректно?
 \begin{lstlisting}[frame=none]
 sf::Vector2i mousePixel = sf::Mouse::getPosition(window);
 c.setPosition({(float)mousePixel.x, (float)mousePixel.y});
@@ -976,72 +976,425 @@ c.setPosition({(float)mousePixel.x, (float)mousePixel.y});
 
 
 \newpage
+\section{Примеры программ с использованием библиотеки SFML}
+Рассмотрим примеры программ, рисующих движущиеся шарики в 2-х измерениях.  Больше примеров можно найти в папках \texttt{code/1ball\_movement} и \texttt{code/2many\_balls}.
 
+\subsection*{Зацикленное движение шарика в 2d пространстве}
+Программа рисует один шарик, двигающийся с постоянной скоростью, но если шарик выходит за границы окна, он появляется с другой стороны.
 
+Для того, чтобы добиться такого поведения шарика, мы будем просто проверять координаты шарика каждый кадр, и если, например, x-координата шарика будет больше ширины экрана, то мы просто будем вычитать из x-координата шарика значение ширины экрана. Более точно, нужно учесть ещё радиус шарика и перемещать его только тогда, когда он полностью выходит за границы окна.
 
-
-\newpage
-
-\section{События}
-
-\begin{itemize}
-\item \textbf{KeyPressed:} В папке \texttt{1key\_events} лежит пример программы, которая обрабатывает нажатия клавиш. Измените программу так, чтобы при нажатии на клавишу Enter кружок менял цвет на случайный.
-
-\item \textbf{KeyReleased:} Измените программу так, чтобы при \textit{отпускании} клавиши пробел прямоугольник менял цвет на случайный (событие \texttt{sf::Event::KeyReleased}).
-
-\item \textbf{MouseButtonPressed:} В папке \texttt{2mouse\_events} лежит пример программы, которая обрабатывает нажатия и движение мыши. Измените программу так, чтобы при нажатии на правую кнопку мыши, прямоугольник перемещался к положению мыши. Событие должно срабатывать только в момент нажатия, прямоугольник не должен двигаться при зажатии кнопки.
 \begin{lstlisting}
-if (event.type == sf::Event::MouseButtonPressed)
+#include <SFML/Graphics.hpp>
+
+int main()
 {
-    if (event.mouseButton.button == sf::Mouse::Right)
+    sf::RenderWindow window(sf::VideoMode(800, 800), "Moving Ball Cycle", sf::Style::Default);
+    window.setFramerateLimit(60);
+    
+    // Создаём шарик радиуса 30 в точке с координатами (100, 100)
+    sf::CircleShape ball(30);
+    ball.setOrigin(sf::Vector2f{ball.getRadius(), ball.getRadius()});
+    ball.setPosition(sf::Vector2f{100, 100});
+
+    while (window.isOpen())
     {
-        std::cout << "the right button was pressed" << std::endl;
-        std::cout << "mouse x: " << event.mouseButton.x << std::endl;
-        std::cout << "mouse y: " << event.mouseButton.y << std::endl;
+        sf::Event event;
+        while (window.pollEvent(event)) 
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+        
+        // Передвигаем шарик на вектор (10, 5)
+        ball.move(sf::Vector2f{10, 5});
+	
+		// Если шарик выходит за границы окна, он появляется с другой стороны:
+        sf::Vector2f max = window.getView().getSize(); // размеры окна
+        if (ball.getPosition().x - ball.getRadius() > max.x)
+            ball.move({-max.x - 2 * ball.getRadius(), 0});
+        if (ball.getPosition().y - ball.getRadius() > max.y)
+            ball.move({0, -max.y - 2 * ball.getRadius()});
+
+        window.clear(sf::Color::Black);
+        window.draw(ball);
+
+        window.display();
     }
 }
 \end{lstlisting}
 
 
-\item \textbf{MouseMoved:} Событие, которое срабатывает тогда, когда двигается мышь.
+\subsection*{Движение шарика в гравитационном поле с упругими столкновениями от границ}
 \begin{lstlisting}
-if (event.type == sf::Event::MouseMoved)
+#include <SFML/Graphics.hpp>
+int main()
 {
-    std::cout << "new mouse x: " << event.mouseMove.x << std::endl;
-    std::cout << "new mouse y: " << event.mouseMove.y << std::endl;
+    sf::RenderWindow window(sf::VideoMode(800, 800), "Collisions and Gravity");
+    window.setFramerateLimit(60);
+ 
+ 	// Создаём шарик радиуса 30 в точке (100, 100)
+    sf::CircleShape ball(30);
+    ball.setOrigin({ball.getRadius(), ball.getRadius()});
+    ball.setPosition(sf::Vector2f{100, 100});
+
+	// Задаём начальную скорость и ускорение шарика
+    sf::Vector2f ballVelocity {300, 0};
+    sf::Vector2f ballAcceleration {0, 1000};
+    float dt = 1.0f / 60;
+
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event)) 
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+        
+        // Уравнения движения
+        ballVelocity += ballAcceleration * dt;
+        ball.move(ballVelocity * dt);
+		
+        sf::Vector2f max = window.getView().getSize(); // размеры окна
+        
+        // Обрабатываем столкновения со стенками:
+        if (ball.getPosition().x + ball.getRadius() > max.x)
+            ballVelocity.x *= -1;
+            
+        if (ball.getPosition().x - ball.getRadius() < 0)
+            ballVelocity.x *= -1;
+            
+        if (ball.getPosition().y + ball.getRadius() > max.y)
+            ballVelocity.y *= -1;
+            
+        if (ball.getPosition().y - ball.getRadius() < 0)
+            ballVelocity.y *= -1;
+
+        window.clear(sf::Color::Black);
+        window.draw(ball);
+        window.display();
+    }
 }
 \end{lstlisting}
-Измените программу так, чтобы прямоуголиник окрашивался в красный цвет тогда и только тогда, когда курсор мыши находится на прямоугольнике. Во всё остальное время прямоуголиник должен быть зелёным.
 
-\item \textbf{Перетаскивание:} Создайте новый прямоугольник и сделайте его перетаскиваемым. При нажатии на него и последующим движении мыши он должен начать двигаться вместе с курсором. При отпускании мыши должен остаться на месте.
+\subsection*{Работа с несколькими шариками}
+Для создания программы, которая рисует множество шариков, удобно написать класс, отвечающий за управление движением каждого отдельного шарика.
+\begin{lstlisting}
+class Ball
+{
+private:
+    sf::RenderWindow& mRenderWindow;
+    sf::Vector2f mPosition {};
+    sf::Vector2f mVelocity {};
+    float mRadius          {};
+public:
+    Ball(sf::RenderWindow& window) : mRenderWindow{window} {}
+
+    void update(float dt)
+    {
+        mPosition += mVelocity * dt;
+        handleCollisions();
+    }
+
+    void handleCollisions()
+    {
+        sf::Vector2f max = mRenderWindow.getView().getSize();
+        if (float dx = mPosition.x + mRadius - max.x; dx > 0)
+            mVelocity.x *= -1;
+            
+        if (float dx = -mPosition.x + mRadius; dx > 0)
+            mVelocity.x *= -1;
+
+        if (float dy = mPosition.y + mRadius - max.y; dy > 0)
+            mVelocity.y *= -1;
+
+        if (float dy = -mPosition.y + mRadius; dy > 0)
+            mVelocity.y *= -1;
+    }
+
+    void draw() const
+    {
+        static sf::CircleShape circle;
+        circle.setFillColor(sf::Color::White);
+        circle.setRadius(mRadius);
+        circle.setOrigin({mRadius, mRadius});
+        circle.setPosition(mPosition);
+        mRenderWindow.draw(circle);
+    }
+    void setPosition(sf::Vector2f position) {mPosition = position;}
+    void setVelocity(sf::Vector2f velocity) {mVelocity = velocity;}
+    void setRadius(float radius)            {mRadius = radius;}
+    sf::Vector2f getPosition() const {return mPosition;}
+    sf::Vector2f getVelocity() const {return mVelocity;}
+    float        getRadius()   const {return mRadius;}
+};
+\end{lstlisting}
+После этого создадим контейнер (например, \texttt{std::vector}) и будем хранить в нём необходимое число шариков:
+\begin{lstlisting}
+sf::RenderWindow window(sf::VideoMode(800, 800), "Many Balls + Collisions");
+window.setFramerateLimit(60);
+float dt = 1.0f / 60;
+
+std::vector<Ball> balls;
+for (int i = 0; i < 10; ++i)
+{
+    Ball ball{window};
+    ball.setRadius(10);
+    ball.setPosition({200.0f + 50.0f * i, 600.0f - 50.0f * i});             
+    ball.setVelocity({500, 500});
+    balls.push_back(ball);
+}
+\end{lstlisting}
+Для передвижения шариков, обработки столкновений со стенками и отрисовки, просто пробегаем по контейнеру и вызываем соответствующий метод шарика:
+\begin{lstlisting}
+
+while (window.isOpen())
+{
+    sf::Event event;
+    while (window.pollEvent(event)) 
+    {
+        if (event.type == sf::Event::Closed)
+            window.close();
+    }
+
+    for (auto& ball : balls)
+        ball.update(dt);
+    
+    window.clear(sf::Color::Black);   
+    for (auto& ball : balls)
+        ball.draw();
+    window.display();
+}
+\end{lstlisting}
 
 
+\newpage
 
+\section{События}
+События (англ. \textit{events}) -- это механизм обработки пользовательского ввода и других действий, происходящих в окне приложения. События могут включать в себя нажатия клавиш, движение мыши, закрытие окна и т. д. \\
+Класс \texttt{sf::Event} используется для хранения информации о произошедшем событии. Объекты этого класса содержат тип события и дополнительные данные, связанные с ним (например, какая клавиша была нажата или координаты курсора мыши).
+
+Рассмотрим пример программы, использующей события. Следующая программа рисует круг и передвигает его при каждом нажатии на клавишу пробел (\texttt{sf::Keyboard::Space}):
+\begin{lstlisting}
+#include <SFML/Graphics.hpp>
+int main()
+{
+    sf::RenderWindow window(sf::VideoMode(800, 800), "Key Pressed Event");
+    window.setFramerateLimit(60);
+
+    sf::CircleShape circle(50);
+    circle.setOrigin({circle.getRadius(), circle.getRadius()});
+    circle.setPosition({100, 400});
+
+    while (window.isOpen())  // Главный цикл
+    {
+        sf::Event event;
+        while (window.pollEvent(event))  // Цикл обработки событий
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+                
+            if (event.type == sf::Event::KeyPressed)
+            {
+                if (event.key.code == sf::Keyboard::Space)
+                    circle.move({50, 0});
+            }
+        }
+
+        window.clear(sf::Color::Black);
+        window.draw(circle);
+        window.display();
+    }
+}
+\end{lstlisting}
+Пояснения по программе:
+\begin{itemize}
+\item Сначала мы создаём объект типа \texttt{sf::Event}, который может хранить внутри себя информацию о событии.
+
+\item Метод \texttt{pollEvent} принимает объект \texttt{event} по ссылке, затем извлекает одно событие из внутренней \textit{очереди событий} и присваивает объекту \texttt{event} это событие. Метод \texttt{pollEvent} возвращает \texttt{true}, если в очереди событий было хотя бы одно событие, и \texttt{false}, если очередь событий была пуста. Таким образом цикл обработки событий работает до тех пор пока в очереди событий не закончатся события.
+
+\item Очередь событий -- это специальная очередь внутри SFML, которая хранит в себе все события, произошедшие за время текущего кадра. В начале каждого кадра мы извлекаем поочерёдно все события из этой очереди и обрабатываем их.
+
+\item После того как событие из очереди получено, его нужно обработать. Будем обрабатывать по-разному в зависимости от типа события. Тип события хранится в поле \texttt{event.type}.
 \end{itemize}
+
+
+\newpage
+\subsection*{Типы событий в библиотеке SFML}
+\begin{itemize}
+\item \texttt{sf::Event::Closed} -- событие, которое происходит когда пользователь пытается закрыть окно, например, когда нажимает на красный крестик в углу окна или когда использует комбинацию клавиш \texttt{Alt + F4}.
+
+\item \texttt{sf::Event::KeyPressed} -- происходит когда пользователь нажал на какую либо клавишу. Код клавиши хранится в поле \texttt{event.key.code}.
+
+\item \texttt{sf::Event::KeyReleased} -- происходит когда пользователь отпустил какую либо клавишу. Код клавиши также хранится в поле \texttt{event.key.code}.
+
+\item \texttt{sf::Event::MouseButtonPressed} -- происходит когда пользователь нажал на какую либо кнопку мыши. Код кнопки мыши хранится в поле \texttt{event.mouseButton.button}. Координаты мыши в момент нажатия в системе координат пикселей хранятся в полях \texttt{event.mouseButton.x} и \texttt{event.mouseButton.y}.
+
+\item \texttt{sf::Event::MouseButtonReleased} -- происходит когда пользователь отпустил какую либо кнопку мыши. Код кнопки мыши хранится в поле \texttt{event.mouseButton.button}. Координаты мыши в момент отпускания в системе координат пикселей хранятся в полях \texttt{event.mouseButton.x} и \texttt{event.mouseButton.y}.
+
+\item \texttt{sf::Event::MouseMoved} -- происходит когда пользователь передвинул курсор мыши. Координаты мыши в момент передвижения курсора в системе координат пикселей хранятся в полях \texttt{event.mouseMove.x} и \texttt{event.mouseMove.y}. Обратите внимание, что название поля в котором хранятся координаты мыши отличается для этого события.
+
+\item \texttt{sf::Event::MouseWheelScrolled} -- происходит когда пользователь прокручивает колёсико мыши.
+\end{itemize}
+
+\subsection*{Очередь событий}
+Очередь событий (англ. \textit{event queue}) -- это очередь, хранящая объекты событий (\texttt{std::queue<sf::Event>}) и находящаяся внутри библиотеки SFML. Напрямуя с этой очередь мы взаимодействовать не можем. События добавляются в эту очередь автоматически при нажатии на клавиши, кнопкок и т. д.. События извлекаются из очереди с помощью метода \texttt{pollEvent}.
+\begin{center}
+\includegraphics[scale=0.9]{../images/event_queue.png}
+\end{center}
+В начале каждого кадра из очереди извлекаются и обрабатываются все накопленные события. Это означает, что в любой момент времени в очереди находятся только те события, которые произошли в течение текущего кадра
+
+
+
+\newpage
+\subsection*{Пример обработки событий. События нажатия и отпускания кнопки мыши}
+Больше примеров можно найти в папке \texttt{code/4events}.
+
+Данная программа, обрабатывает нажатия и отпускания левой клавиши мыши (ЛКМ).
+Программа рисует белый круг.
+При нажатии на ЛКМ круг меняет свой цвет на красный.
+При отпускании ЛКМ круг опять становится белым.
+\begin{lstlisting}
+#include <SFML/Graphics.hpp>
+
+int main()
+{
+    sf::RenderWindow window(sf::VideoMode(800, 800), "Mouse Button Pressed or Relesed");
+    window.setFramerateLimit(60);
+    
+    sf::CircleShape circle(200);
+    circle.setPosition({200, 200});
+
+    while (window.isOpen()) 
+    {
+        sf::Event event;
+        while (window.pollEvent(event)) 
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+
+            if (event.type == sf::Event::MouseButtonPressed)
+            {
+                if (event.mouseButton.button == sf::Mouse::Left)
+                    circle.setFillColor(sf::Color::Red);
+            }
+
+            if (event.type == sf::Event::MouseButtonReleased)
+            {
+                if (event.mouseButton.button == sf::Mouse::Left)
+                    circle.setFillColor(sf::Color::White);
+            }
+        }
+
+        window.clear(sf::Color::Black);
+        window.draw(circle);
+        window.display();
+    }
+}
+\end{lstlisting}
+
+
+
+
+\newpage
+\subsection*{Пример обработки событий. Получение координат мыши при нажатии.}
+Координаты мыши для событий \texttt{MouseButtonPressed} и \texttt{MouseButtonReleased} хранятся в полях \texttt{event.mouseButton.x} и \texttt{event.mouseButton.y}. Однако это координаты в системе координат пикселей. Для того, чтобы перевести эти координаты в систему координат мира нужно использовать метод \texttt{mapPixelToCoords}. Если этого не сделать, то программа будет работать некорректно, при изменении размеров окна.
+
+Следующая программа рисует кружок. При нажатии на левую кнопку мыши кружок меняет положение на то, в котором находится курсор. Также, при нажатии, программа печатает в консоль координаты мыши в системе координат пикселей и в системе координат мира.
+\begin{lstlisting}
+#include <SFML/Graphics.hpp>
+#include <iostream>
+
+int main()
+{
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Mouse Button Pressed Coordinates");
+    window.setFramerateLimit(60);
+
+    sf::CircleShape circle(30);
+    circle.setOrigin({circle.getRadius(), circle.getRadius()});
+    circle.setPosition({200, 200});
+
+    while (window.isOpen()) 
+    {
+        sf::Event event;
+        while (window.pollEvent(event)) 
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+
+            if (event.type == sf::Event::MouseButtonPressed)
+            {
+                if (event.mouseButton.button == sf::Mouse::Left)
+                {
+                    sf::Vector2i mousePixel {event.mouseButton.x, event.mouseButton.y};
+                    sf::Vector2f mousePosition = window.mapPixelToCoords(mousePixel);
+
+                    std::cout << "Left Mouse Button is pressed\n";
+                    std::cout << "Pixel: " << mousePixel.x << " " << mousePixel.y;
+                    std::cout << std::endl;
+                    std::cout << "Position: " << mousePosition.x << " " << mousePosition.y;
+                    std::cout << std::endl;
+
+                    circle.setPosition(mousePosition);
+                }
+            }
+        }
+
+        window.clear(sf::Color::Black);
+        window.draw(circle);
+        window.display();
+    }
+}
+\end{lstlisting}
+
+\newpage
+\subsection*{Различие между двумя видами обработки нажатий клавиш и кнопок}
+
+\newpage
+\subsection*{Пример обработки событий. Получение координат мыши при перемещении курсора.}
+
+Следующая программа рисует кружок, который перемещается вслед за курсором. Для этого обрабатывается событие \texttt{sf::Event::MouseMoved}. Координаты мыши в этом событии хранятся в полях \texttt{event.mouseMove.x} и \texttt{event.mouseMove.у}. 
+
+\textbf{Обратите внимание, что названия полей в котором хранятся координаты мыши для этого события отличается от событий нажатия и отпускания кнопки мыши!}. Если использовать поля\\ \texttt{event.mouseButton.x} и \texttt{event.mouseButton.у} вместо полей \texttt{event.mouseMove.x} и \texttt{event.mouseMove.у} при обработке этого события, это приведёт к некорректной работе программы.
+\begin{lstlisting}
+#include <SFML/Graphics.hpp>
+int main()
+{
+    sf::RenderWindow window(sf::VideoMode(800, 800), "Mouse Button Move Coordinates");
+    window.setFramerateLimit(60);
+
+    sf::CircleShape circle(30);
+    circle.setOrigin({circle.getRadius(), circle.getRadius()});
+    circle.setPosition({400, 400});
+
+    while (window.isOpen()) 
+    {
+        sf::Event event;
+        while (window.pollEvent(event)) 
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+
+            if (event.type == sf::Event::MouseMoved)
+            {
+                sf::Vector2i mousePixel {event.mouseMove.x, event.mouseMove.y};
+                sf::Vector2f mousePosition = window.mapPixelToCoords(mousePixel);
+                circle.setPosition(mousePosition);
+            }
+        }
+        window.clear(sf::Color::Black);
+        window.draw(circle);
+        window.display();
+    }
+}
+\end{lstlisting}
+
+
 
 \newpage
 \section{Задачи}
 \begin{itemize}
-\item Создайте 2 объекта: круг и квадрат. Круг должен двигаться при нажатии на стрелки. Квадрат должен двигаться при нажатии на \texttt{WASD}.
-\item Сделайте так, чтобы при нажатии на левую кнопку мыши координаты круга становились бы равными координатам мыши.
-\item Сделайте так, чтобы при нажатии на \texttt{Enter} цвет квадрата менялся случайным образом каждый кадр.
-\item Сделайте так, чтобы квадрат передвигался вправо на 50 пикселей каждые 2 секунды. При этом, все остальное должно работать как прежде, то есть функцию \texttt{sf::sleep} использовать не получится.
-\item Сделайте так, чтобы цвет круга плавно зависел от положения курсора на экране.
-
-\item Создайте новый круг белого цвета и сделайте так, чтобы при наведении на него курсора, он становился красным.
-\end{itemize}
-
-\newpage
-\section{Задачи}
-\begin{itemize}
-
-
-\item \textbf{Вращающийся квадрат}
-Создайте программу, которая будет рисовать на экране вращающийся квадрат.
-
-
-\item \textbf{Движение по окружности}
-Создайте программу, которая будет рисовать на экране круг, движущийся по окружности.
 
 \item \textbf{Шарики:} В папке \texttt{collision\_circles} содержится заготовка кода. 
 \begin{itemize}
@@ -1050,11 +1403,6 @@ if (event.type == sf::Event::MouseMoved)
 \item Добавьте возможность добавления нового шарика по нажатию правой кнопки мыши.
 \item Добавьте возможность стенки по нажатию левой кнопки мыши. Нужно зажать ЛКМ в одной точки и отпустить в другой, чтобы получить стенку. Стенка -- это просто отрезок. Но шарики должны от него должны отскакивать. Про обнаружение столкновений можно посмотреть в папке \texttt{collision\_examples}.
 \end{itemize}
-
-
-\item \textbf{Перетаскивание:} В папке \texttt{1draggable/} содержится заготовка исходного кода для этого задания. Эта программа просто рисует прямоугольник на экране. Сделайте его перетаскиваемым мышью. При нажатии на него и последующим движении мыши он должен начать двигаться вместе с курсором. При отпускании мыши должен остаться на месте.
-
-\item \textbf{Класс \texttt{Draggable}:} Создайте класс \texttt{Draggable}, который будет описывать прямоугольник, который можно перетаскивать мышкой.
 
 
 \item \textbf{Кнопка:} Создайте кнопку. Логика работы должна этой кнопки аналогичной логике работы обычной кнопки в ОС Windows:
@@ -1067,19 +1415,5 @@ if (event.type == sf::Event::MouseMoved)
 \item В иных случая действие не происходит (например, если мы зажали ЛКМ вне кнопки и отпустили над кнопкой, или если мы зажали ЛКМ над кнопкой и отпустили вне кнопки).
 \end{itemize}
 
-\item \textbf{Класс кнопки:}  Напишите класс \texttt{Button}, который будет описывать кнопку. 
-\begin{itemize}
-\item Создайте 1 круг. Сделайте так, чтобы при нажатии на кнопку цвет круга менялся бы на случайный.
-\item Создайте 4 кнопки. Сделайте так, чтобы при нажатии на эти кнопки положение круга смещалось на 10 пикселей в одном из 4-х направлений (влево, вправо, вверх, вниз).
 \end{itemize}
-	
-\item \textbf{Флажки:} Напишите класс \texttt{Checkbox}, который будет описывать флажок. Флажок должен включать в себя квадратик, на который можно нажимать и менять состояние флажка (вкл/выкл), а также текст рядом с этим квадратиком. Создайте несколько флажков и кнопку. При нажатии на кнопку в консоль должно печататься тексты всех включенных флажков.
-
-\item \textbf{Контекстное меню:} Напишите класс \texttt{ContextMenu}, описывающий контекстное меню.
-Создайте круг. И добавьте опции в контекстное меню так, чтобы можно было менять цвет и размер круга.
-\end{itemize}
-
-
-
-
 \end{document}
