@@ -89,4 +89,18 @@ public:
         else if (event.type == sf::Event::MouseButtonReleased)
             onMouseReleased(event);
     }
+
+    bool isPressed() const
+    {
+        return mIsPressed;
+    }
+
+    float getValue() const
+    {
+        float start = mTrackShape.getPosition().x - mTrackShape.getSize().x / 2.0f;
+        float finish = mTrackShape.getPosition().x + mTrackShape.getSize().x / 2.0f;
+        float position = mThumbShape.getPosition().x;
+        return 100.0f * (position - start) / (finish - start);
+    }
+
 };

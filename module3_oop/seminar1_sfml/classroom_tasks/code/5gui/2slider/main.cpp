@@ -1,7 +1,6 @@
 #include <iostream>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-
 #include "slider.hpp"
 
 int main()
@@ -20,6 +19,9 @@ int main()
                 window.close();
 
             slider.handleEvent(event);
+
+            if (event.type == sf::Event::MouseMoved && slider.isPressed())
+                std::cout << slider.getValue() << std::endl;
         }
 
         window.clear(sf::Color::Black);
