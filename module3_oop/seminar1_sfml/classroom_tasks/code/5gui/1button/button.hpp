@@ -6,31 +6,29 @@
 // Класс кнопки (простейший)
 class Button
 {
-private:
+protected:
     // Цвета кнопки по умолчанию(default), при наведении(hover) и при нажатии(pressed)
     sf::Color mDefaultColor {179, 230, 255};
     sf::Color mHoverColor   {128, 212, 255};
     sf::Color mPressedColor {  0, 136, 204};
 
-
     // Объект кнопки содержит объект фигуры-прямоугольника
     // Внутри mShape хранятся координаты, размеры и текущий цвет прямоугольника (у кнопки они будут такими же)
     sf::RectangleShape mShape {};
 
+    // Когда кнопка находится в нажатом состоянии, 
+    // то isPressed = true (Пользователь зажал кнопку и держит)
+    bool mIsPressed {};
+
     // Также храним ссылку на окно SFML, на которое будем отрисовывать кнопку
     // Эту ссылку можно было не хранить, а просто передавать во все функции,
     // где окно понадобится, но тогда код был бы более громоздким
-    sf::RenderWindow& mSfmlWindow;
-    
-    // Когда кнопка находится в нажатом состоянии, 
-    // то isPressed = true (Пользователь зажал кнопку и держит)
-    bool mIsPressed;
+    sf::RenderWindow& mRenderWindow;
 
 public:
-
-    // Конструктор: ссылки нужно обязательно инициализировать в списке инициализации
+    
     Button(sf::RenderWindow& window, sf::Vector2f position, sf::Vector2f size) 
-            : mSfmlWindow(window)
+            : mRenderWindow(window)
     {
         mShape.setPosition(position);
         mShape.setSize(size);
@@ -38,10 +36,37 @@ public:
         mIsPressed = false;
     }
 
-    // Метод, который рисует кнопку на холсте окна mSfmlWindow
+    // Метод, который рисует кнопку на холсте окна mRenderWindow
     void draw()
     {
-        mSfmlWindow.draw(mShape);
+        mRenderWindow.draw(mShape);
+    }
+
+    // Нужно вызвать лишь этот метод в цикле обработки событий
+    // Возвращает true, если нажатие на кнопку произошло
+    bool handleEvent(const sf::Event& event) 
+    {
+        if (event.type == sf::Event::MouseMoved)
+            onMouseMove(event);
+        else if (event.type == sf::Event::MouseButtonPressed)
+            onMousePressed(event);
+        else if (event.type == sf::Event::MouseButtonReleased)
+            return onMouseReleased(event);
+        return false;
+    }
+
+    // Метод, который срабатывает каждый раз, когда нажимется кнопка мыши
+    void onMousePressed(const sf::Event& event)
+    {
+        if (event.mouseButton.button == sf::Mouse::Left) 
+        {
+            sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
+            if (mShape.getGlobalBounds().contains(mousePosition)) 
+            {
+                mIsPressed = true;
+                mShape.setFillColor(mPressedColor);
+            }
+        }
     }
 
     // Метод, который срабатывает каждый раз, когда двигается мышь
@@ -50,25 +75,11 @@ public:
         if (mIsPressed)
             return;
         
-        sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
+        sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
         if (mShape.getGlobalBounds().contains(mousePosition))
             mShape.setFillColor(mHoverColor);
         else
             mShape.setFillColor(mDefaultColor);
-    }
-
-    // Метод, который срабатывает каждый раз, когда нажимется кнопка мыши
-    void onMousePressed(const sf::Event& event)
-    {
-        if (event.mouseButton.button == sf::Mouse::Left) 
-        {
-            sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
-            if (mShape.getGlobalBounds().contains(mousePosition)) 
-            {
-                mIsPressed = true;
-                mShape.setFillColor(mPressedColor);
-            }
-        }
     }
 
     // Метод, который срабатывает каждый раз, когда отпускается кнопка мыши
@@ -80,7 +91,7 @@ public:
 
         mIsPressed = false;
 
-        sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
+        sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
         if (mShape.getGlobalBounds().contains(mousePosition)) 
         {
             mShape.setFillColor(mHoverColor);
@@ -91,21 +102,5 @@ public:
             mShape.setFillColor(mDefaultColor);
             return false;
         }
-    }
-
-    // Нужно вызвать лишь этот метод в цикле обработки событий
-    // Возвращает true, если нажатие на кнопку произошло
-    bool handleEvent(const sf::Event& event) 
-    {
-        if (event.type == sf::Event::MouseMoved) {
-            onMouseMove(event);
-        }
-        else if (event.type == sf::Event::MouseButtonPressed) {
-            onMousePressed(event);
-        }
-        else if (event.type == sf::Event::MouseButtonReleased) {
-            return onMouseReleased(event);
-        }
-        return false;
     }
 };

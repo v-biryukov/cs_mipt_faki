@@ -14,13 +14,13 @@ private:
 
 
     // Объект кнопки содержит объект фигуры-прямоугольника
-    // Внутри mShape хранятся координаты, размеры и текущий цвет прямоугольника (у кнопки они будут такими же)
+    // Внутри mShape хранятся координаты, размеры и текущий цвет прямоугольника, предствляющего нашу кнопку.
     sf::RectangleShape mShape {};
 
     // Также храним ссылку на окно SFML, на которое будем отрисовывать кнопку
     // Эту ссылку можно было не хранить, а просто передавать во все функции,
     // где окно понадобится, но тогда код был бы более громоздким
-    sf::RenderWindow& mSfmlWindow;
+    sf::RenderWindow& mRenderWindow;
     
     // Когда кнопка находится в нажатом состоянии, 
     // то isPressed = true (Пользователь зажал кнопку и держит)
@@ -30,7 +30,7 @@ public:
 
     // Конструктор: ссылки нужно обязательно инициализировать в списке инициализации
     Button(sf::RenderWindow& window, sf::Vector2f position, sf::Vector2f size) 
-            : mSfmlWindow(window)
+            : mRenderWindow(window)
     {
         mShape.setPosition(position);
         mShape.setSize(size);
@@ -38,10 +38,10 @@ public:
         mIsPressed = false;
     }
 
-    // Метод, который рисует кнопку на холсте окна mSfmlWindow
+    // Метод, который рисует кнопку на холсте окна mRenderWindow
     void draw()
     {
-        mSfmlWindow.draw(mShape);
+        mRenderWindow.draw(mShape);
     }
 
     // Метод, который срабатывает каждый раз, когда двигается мышь
@@ -50,7 +50,7 @@ public:
         if (mIsPressed)
             return;
         
-        sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
+        sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
         if (mShape.getGlobalBounds().contains(mousePosition))
             mShape.setFillColor(mHoverColor);
         else
@@ -62,7 +62,7 @@ public:
     {
         if (event.mouseButton.button == sf::Mouse::Left) 
         {
-            sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
+            sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
             if (mShape.getGlobalBounds().contains(mousePosition)) 
             {
                 mIsPressed = true;
@@ -80,7 +80,7 @@ public:
 
         mIsPressed = false;
 
-        sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
+        sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
         if (mShape.getGlobalBounds().contains(mousePosition)) 
         {
             mShape.setFillColor(mHoverColor);

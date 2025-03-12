@@ -26,7 +26,7 @@ int main()
             bool isButtonActivated = button.handleEvent(event);
             if (isButtonActivated)
             {
-                std::cout << "Button pressed!" << std::endl;
+                std::cout << "Button clicked!" << std::endl;
                 circle.move({100 * circleDirection, 0});
                 if (circle.getPosition().x >= 700 || circle.getPosition().x <= 0)
                     circleDirection *= -1;

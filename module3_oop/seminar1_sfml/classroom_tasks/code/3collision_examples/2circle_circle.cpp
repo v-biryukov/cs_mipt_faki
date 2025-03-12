@@ -30,14 +30,10 @@ struct Ball
     float radius;
     float mass;
 
-    Ball(sf::Vector2f position, sf::Vector2f velocity, float radius, float mass):
-            position(position), velocity(velocity), radius(radius), mass(mass)
-    {
-    }
+    Ball(sf::Vector2f position, sf::Vector2f velocity, float radius, float mass)
+    : position(position), velocity(velocity), radius(radius), mass(mass) {}
 
-    Ball()
-    {
-    }
+    Ball(){}
 
     void draw(sf::RenderWindow& window)
     {
@@ -252,6 +248,4 @@ int main()
 
         window.display();
     }
-
-    return 0;
 }

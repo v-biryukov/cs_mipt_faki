@@ -7,16 +7,15 @@
 
 class Draggable
 {
-private:
-
-    sf::RenderWindow& mSfmlWindow;
+protected:
     sf::RectangleShape mShape   {};
     bool mIsDragged             {false};
     sf::Vector2f mOffset        {0.0f, 0.0f};
+    sf::RenderWindow& mRenderWindow;
 
 public:
     Draggable(sf::RenderWindow& window, sf::Vector2f position, sf::Vector2f size, sf::Color color)
-    : mSfmlWindow(window)
+    : mRenderWindow(window)
     {
         mShape.setPosition(position);
         mShape.setSize(size);
@@ -41,28 +40,26 @@ public:
     void onMouseMoved(sf::Vector2f mousePosition)
     {
         if (mIsDragged)
-        {
             mShape.setPosition(mousePosition - mOffset);
-        }
     }
 
     bool handleEvent(const sf::Event& event)
     {
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
         {
-            sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
+            sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
             return onMousePressed(mousePosition);
         }
 
         if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
         {
-            sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
+            sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
             onMouseReleased();
         }
 
         if (event.type == sf::Event::MouseMoved)
         {
-            sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
+            sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
             onMouseMoved(mousePosition);
         }
 
@@ -75,6 +72,6 @@ public:
 
     void draw() const
     {
-        mSfmlWindow.draw(mShape);
+        mRenderWindow.draw(mShape);
     }
 };
