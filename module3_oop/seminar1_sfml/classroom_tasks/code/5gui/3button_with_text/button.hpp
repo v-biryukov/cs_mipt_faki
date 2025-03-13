@@ -30,7 +30,7 @@ private:
 
 public:
 
-    Button(sf::RenderWindow& window, sf::Font& font, sf::FloatRect rect, const sf::String& textData) 
+    Button(sf::RenderWindow& window, sf::FloatRect rect, sf::Font& font, const sf::String& textData) 
             : mRenderWindow{window}
     {
         mShape.setPosition({rect.left, rect.top});
@@ -41,7 +41,6 @@ public:
         mText.setString(textData);
         mText.setFillColor(sf::Color::Black);
         
-
         // Вычисляем оптимальный размер шрифта
         mText.setCharacterSize(30);
         auto calculateOptimalFontSize = [this]() 
@@ -58,18 +57,43 @@ public:
         };
         mText.setCharacterSize(calculateOptimalFontSize());
 
+        centerText();
+    }
 
-        // Центрируем текст в центре прямоугольника
+    void setFontSize(unsigned int fontSize)
+    {
+        mText.setCharacterSize(fontSize);
+        centerText();
+    }
+
+    void draw() const
+    {
+        mRenderWindow.draw(mShape);
+        mRenderWindow.draw(mText);
+    }
+
+    // Нужно вызвать лишь этот метод в цикле обработки событий
+    // Возвращает true, если нажатие на кнопку произошло
+    bool handleEvent(const sf::Event& event) 
+    {
+        if (event.type == sf::Event::MouseMoved)
+            onMouseMove(event);
+        else if (event.type == sf::Event::MouseButtonPressed)
+            onMousePressed(event);
+        else if (event.type == sf::Event::MouseButtonReleased)
+            return onMouseReleased(event);
+        return false;
+    }
+
+private:
+
+    // Центрируем текст в центре прямоугольника
+    void centerText()
+    {
         sf::FloatRect textBounds = mText.getLocalBounds();
         mText.setOrigin(textBounds.left + textBounds.width / 2.0f, textBounds.top + textBounds.height / 2.0f);
         sf::Vector2f rectCenter = mShape.getPosition() + mShape.getSize() / 2.0f;
         mText.setPosition(rectCenter);
-    }
-
-    void draw()
-    {
-        mRenderWindow.draw(mShape);
-        mRenderWindow.draw(mText);
     }
 
     void onMousePressed(const sf::Event& event)
@@ -115,18 +139,5 @@ public:
             mShape.setFillColor(mDefaultColor);
             return false;
         }
-    }
-
-    // Нужно вызвать лишь этот метод в цикле обработки событий
-    // Возвращает true, если нажатие на кнопку произошло
-    bool handleEvent(const sf::Event& event) 
-    {
-        if (event.type == sf::Event::MouseMoved)
-            onMouseMove(event);
-        else if (event.type == sf::Event::MouseButtonPressed)
-            onMousePressed(event);
-        else if (event.type == sf::Event::MouseButtonReleased)
-            return onMouseReleased(event);
-        return false;
     }
 };

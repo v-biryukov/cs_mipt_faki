@@ -46,7 +46,7 @@ int main()
         float randomX = getRandomFloat(0, sceneWidth - randomWidth);
         float randomY = getRandomFloat(0, sceneHeight - randomHeight);
 
-        buttons.push_back(Button{window, font, {randomX, randomY, randomWidth, randomHeight}, "Hello!"});
+        buttons.push_back(Button{window, {randomX, randomY, randomWidth, randomHeight}, font, "Hello!"});
     }
 
     while (window.isOpen()) 

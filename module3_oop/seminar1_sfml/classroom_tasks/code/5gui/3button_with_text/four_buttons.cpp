@@ -19,11 +19,14 @@ int main()
     }
 
     std::vector buttons{
-        Button{window, {200, 300, 60, 60}, font, 20, "Left"},
-        Button{window, {300, 300, 60, 60}, font, 20, "Right"},
-        Button{window, {250, 200, 60, 60}, font, 20, "Up"},
-        Button{window, {250, 400, 60, 60}, font, 20, "Down"}
+        Button{window, {200, 300, 60, 60}, font, "Left"},
+        Button{window, {300, 300, 60, 60}, font, "Right"},
+        Button{window, {250, 200, 60, 60}, font, "Up"},
+        Button{window, {250, 400, 60, 60}, font, "Down"}
     };
+
+    for (auto& b : buttons)
+        b.setFontSize(20);
 
     const float step = 20;
     std::vector directions{
