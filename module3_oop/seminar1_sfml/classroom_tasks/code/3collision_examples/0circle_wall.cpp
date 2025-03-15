@@ -165,7 +165,7 @@ int main()
     Ball ball = {{200, 300}, {700, 0}, 28};
 
     sf::Font font;
-    if (!font.loadFromFile("consolas.ttf")) 
+    if (!font.loadFromFile("../../../../fonts/sourceCodePro.ttf")) 
     { 
         std::cout << "Error, no font named consolas.ttf" << std::endl;
         std::exit(1);

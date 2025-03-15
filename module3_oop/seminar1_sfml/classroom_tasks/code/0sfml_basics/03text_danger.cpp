@@ -41,7 +41,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(800, 800), "Rotating Text (Error)", sf::Style::Default);
     window.setFramerateLimit(60);
     
-    sf::Text text = getText("consola.ttf");
+    sf::Text text = getText("sourceCodePro.ttf");
 
     while (window.isOpen())
     {

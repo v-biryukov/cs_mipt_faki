@@ -7,7 +7,7 @@ int main()
     window.setFramerateLimit(60);
     
     sf::Font font;
-    if (!font.loadFromFile("consola.ttf")) 
+    if (!font.loadFromFile("sourceCodePro.ttf")) 
     {
         std::cout << "Error! Can't load font!" << std::endl;
         std::exit(1);

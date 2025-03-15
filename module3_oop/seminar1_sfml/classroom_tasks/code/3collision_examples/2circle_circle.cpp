@@ -190,10 +190,10 @@ int main()
     window.setFramerateLimit(framelimit);
 
     sf::Font font;
-    if (!font.loadFromFile("../consolas.ttf"))
+    if (!font.loadFromFile("../../../../fonts/sourceCodePro.ttf"))
     {
-        if (!font.loadFromFile("consolas.ttf"))
-            std::cout << "Error, no font named consolas.ttf" << std::endl;
+        std::cout << "Error: Font file not found." << std::endl;
+        std::exit(1);
     }
     sf::Text info;
     info.setFont(font);

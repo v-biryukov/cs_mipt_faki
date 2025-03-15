@@ -45,18 +45,18 @@ public:
         mText.setCharacterSize(30);
         auto calculateOptimalFontSize = [this]() 
         {
+            float widthFraction = 0.8;
+            float heightFraction = 0.6;
+
             sf::FloatRect textBounds = mText.getLocalBounds();
-            float widthRatio = mShape.getSize().x / textBounds.width;
-            float heightRatio = mShape.getSize().y / textBounds.height;
+            float widthRatio = mShape.getSize().x / textBounds.width * widthFraction;
+            float heightRatio = mShape.getSize().y / textBounds.height * heightFraction;
             float minRatio = std::min(widthRatio, heightRatio);
 
-            float fraction = 0.85;
-
-            unsigned int newSize = static_cast<unsigned int>(mText.getCharacterSize() * minRatio * fraction);
+            unsigned int newSize = static_cast<unsigned int>(mText.getCharacterSize() * minRatio);
             return newSize;
         };
         mText.setCharacterSize(calculateOptimalFontSize());
-
         centerText();
     }
 

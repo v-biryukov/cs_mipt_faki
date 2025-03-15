@@ -49,12 +49,14 @@ private:
 
     int onMousePressed(const sf::Event& event)
     {
-        if (event.mouseButton.button == sf::Mouse::Right) {
+        if (event.mouseButton.button == sf::Mouse::Right) 
+        {
             mIsOpened = true;
             sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
             mShape.setPosition(mousePosition);
         }
-        if (event.mouseButton.button == sf::Mouse::Left && mIsOpened) {
+        if (event.mouseButton.button == sf::Mouse::Left && mIsOpened) 
+        {
             mIsOpened = false;
             return mHoverPosition;
         }
@@ -63,16 +65,14 @@ private:
 
     void onMouseMove(const sf::Event& event)
     {
-        if (!mIsOpened) {
+        if (!mIsOpened)
             return;
-        }
+
         sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
-        if (mShape.getGlobalBounds().contains(mousePosition)) {
+        if (mShape.getGlobalBounds().contains(mousePosition))
             mHoverPosition = (mousePosition.y - mShape.getPosition().y) / kButtonHeight;
-        }
-        else {
+        else
             mHoverPosition = -1;
-        }
     }
 
 public:
@@ -98,18 +98,19 @@ public:
 
     void draw()
     {
-        if (!mIsOpened) {
+        if (!mIsOpened)
             return;
-        }
+
         // Если добавили новый вариант, то её текст может быть длиннее
         // чем у других. Нужно расширить прямоугольники.
-        if (!mIsUpdated) {
+        if (!mIsUpdated) 
+        {
             int maxSizeX = 0;
-            for (int i = 0; i < mButtons.size(); i++) {
+            for (int i = 0; i < mButtons.size(); i++) 
+            {
                 mText.setString(mButtons[i]);
-                if (mText.getLocalBounds().width > maxSizeX) {
+                if (mText.getLocalBounds().width > maxSizeX)
                     maxSizeX = mText.getLocalBounds().width;
-                }
             }
             maxSizeX *= kMenuWidthMultiplier;
             mShape.setSize({(float)maxSizeX, (float)(kButtonHeight * mButtons.size())});
@@ -117,26 +118,26 @@ public:
             mIsUpdated = true;
         }
 
-
         mRenderWindow.draw(mShape);
-        if (mHoverPosition >= 0){
+        if (mHoverPosition >= 0)
+        {
             mHoverShape.setPosition(mShape.getPosition().x, mShape.getPosition().y + mHoverPosition * kButtonHeight);
             mRenderWindow.draw(mHoverShape);
         }
-        for (int i = 0; i < mButtons.size(); i++) {
+        for (int i = 0; i < mButtons.size(); i++) 
+        {
             mText.setString(mButtons[i]);
             mText.setPosition(mShape.getPosition().x, mShape.getPosition().y + i * kButtonHeight);
             mRenderWindow.draw(mText);
         }
     }
 
-    int handleEvent(const sf::Event& event) {
-        if (event.type == sf::Event::MouseMoved) {
+    int handleEvent(const sf::Event& event) 
+    {
+        if (event.type == sf::Event::MouseMoved)
             onMouseMove(event);
-        }
-        else if (event.type == sf::Event::MouseButtonPressed) {
+        else if (event.type == sf::Event::MouseButtonPressed)
             return onMousePressed(event);
-        }
         return -1;
     }
 

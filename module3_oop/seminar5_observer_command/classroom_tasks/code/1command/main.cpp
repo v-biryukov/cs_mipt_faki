@@ -28,12 +28,12 @@ private:
 
     sf::RectangleShape mField;
     std::vector<sf::Shape*> mShapes;
-    sf::RenderWindow& mSfmlWindow;
+    sf::RenderWindow& mRenderWindow;
 
 public:
 
     ShapePool(sf::RenderWindow& window, sf::Vector2f position, sf::Vector2f size)
-    : mSfmlWindow(window)
+    : mRenderWindow(window)
     {
         mField.setPosition(position);
         mField.setSize(size);
@@ -65,8 +65,8 @@ public:
     void draw() const
     {
         for (auto p : mShapes)
-            mSfmlWindow.draw(*p);
-        mSfmlWindow.draw(mField);        
+            mRenderWindow.draw(*p);
+        mRenderWindow.draw(mField);        
     }
 
     ~ShapePool()
@@ -176,11 +176,11 @@ private:
     std::vector<Button*> mButtons;
     std::vector<Command*> mCommands;
 
-    sf::RenderWindow& mSfmlWindow;
+    sf::RenderWindow& mRenderWindow;
 
 public:
 
-    ControlPanel(sf::RenderWindow& window) : mSfmlWindow(window)
+    ControlPanel(sf::RenderWindow& window) : mRenderWindow(window)
     {}
 
     void addButton(Button* p)
@@ -246,7 +246,6 @@ int main()
     control.addButton(new Button(window, {100, 500}, {100, 50}), new RandomAllPositionsCommand(pool));
     control.addButton(new Button(window, {100, 600}, {100, 50}));
 
-
     while (window.isOpen())
     {
         sf::Event event;
@@ -263,6 +262,4 @@ int main()
         control.draw();
         window.display();
     }
-
-
 }

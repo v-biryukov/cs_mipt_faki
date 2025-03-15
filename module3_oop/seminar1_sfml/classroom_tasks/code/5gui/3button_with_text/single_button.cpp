@@ -10,10 +10,10 @@ int main()
     window.setFramerateLimit(60);
 
     sf::Font font;
-    if (!font.loadFromFile("consolas.ttf")) 
+    if (!font.loadFromFile("../sourceCodePro.ttf")) 
     {
-        std::cout << "Can't load button font" << std::endl;
-        return 1;
+        std::cout << "Error: Font file not found." << std::endl;
+        std::exit(1);
     }
 
     Button button(window, {300, 250, 360, 60}, font, "Hello world!");

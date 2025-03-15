@@ -96,24 +96,27 @@ int main()
     sf::RenderWindow window(sf::VideoMode(800, 600), "Checkbox Class!");
     window.setFramerateLimit(20);
 
-    // Это для надписи вверху слева:
-    sf::Font consolas_font;
-    if (!consolas_font.loadFromFile("consolas.ttf")) {
-        std::cout << "Can't load button font consolas.txt" << std::endl;
+
+    sf::Font font;
+    if (!font.loadFromFile("../sourceCodePro.ttf")) 
+    {
+        std::cout << "Error: Font file not found." << std::endl;
+        std::exit(1);
     }
+    
     sf::Text info;
-    info.setFont(consolas_font);
+    info.setFont(font);
     info.setString("Checkboxes activated: ");
     info.setCharacterSize(22);
 
 
     std::vector<Checkbox> checkboxes = { 
-        {400, 100, consolas_font, "Moscow"},
-        {400, 150, consolas_font, "New York"},
-        {400, 200, consolas_font, "Paris"},
-        {400, 250, consolas_font, "Lagos"},
-        {400, 300, consolas_font, "Tokyo"},
-        {400, 350, consolas_font, "Lima"}
+        {400, 100, font, "Moscow"},
+        {400, 150, font, "New York"},
+        {400, 200, font, "Paris"},
+        {400, 250, font, "Lagos"},
+        {400, 300, font, "Tokyo"},
+        {400, 350, font, "Lima"}
     };
 
     while (window.isOpen()) {

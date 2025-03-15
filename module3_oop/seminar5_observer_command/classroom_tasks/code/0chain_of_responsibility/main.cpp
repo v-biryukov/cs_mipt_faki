@@ -116,5 +116,4 @@ int main()
         std::cout << "Password " << ps3 << " is valid!" << std::endl;
     else
         std::cout << "Password " << ps3 << " is invalid!" << std::endl;
-
 }
