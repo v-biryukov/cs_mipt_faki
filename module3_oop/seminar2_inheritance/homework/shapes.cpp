@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-using std::cout, std::endl;
 
 /*
     Вспомогательная структура Vector2f, которая описывает математический вектор в двумерном пространстве.
@@ -60,7 +59,6 @@ std::ostream& operator<<(std::ostream& out, Vector2f right)
 class Circle
 {
 private:
-
     Vector2f mPosition;
     float mRadius;
 
@@ -92,7 +90,6 @@ public:
 class Rectangle
 {
 private:
-
     Vector2f mPosition;
     float mWidth;
     float mHeight;
@@ -135,8 +132,8 @@ private:
 
 public:
 
-    Triangle(Vector2f pointA, Vector2f pointB, Vector2f pointC) : 
-             mPosition({0, 0}), mPointA(pointA), mPointB(pointB), mPointC(pointC)
+    Triangle(Vector2f pointA, Vector2f pointB, Vector2f pointC) 
+        : mPosition({0, 0}), mPointA(pointA), mPointB(pointB), mPointC(pointC)
     {
     }
 
@@ -160,11 +157,11 @@ public:
 int main()
 {
     Circle a(10);
-    cout << a.calculatePerimeter() << endl;
+    std::cout << a.calculatePerimeter() << std::endl;
 
     Rectangle b(100, 200);
-    cout << b.calculatePerimeter() << endl;
+    std::cout << b.calculatePerimeter() << std::endl;
 
     Triangle c({5, 2}, {-7, 5}, {4, 4});
-    cout << c.calculatePerimeter() << endl;
+    std::cout << c.calculatePerimeter() << std::endl;
 }
