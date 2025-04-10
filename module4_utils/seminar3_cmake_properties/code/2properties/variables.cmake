@@ -1,8 +1,4 @@
 
-
-message(${WIN32})
-
-
 get_cmake_property(vars VARIABLES)
 foreach (v ${vars})
     message("${v}=${${v}}")
