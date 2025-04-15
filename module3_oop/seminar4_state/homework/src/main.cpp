@@ -1,8 +1,3 @@
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include "world.hpp"
-
-
 /*
     Для компиляции:
          g++ main.cpp player.cpp player_states.cpp -lsfml-window -lsfml-system -lsfml-graphics
@@ -11,6 +6,9 @@
         https://rvros.itch.io/animated-pixel-hero
 */
 
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include "world.hpp"
 
 int main() 
 {
@@ -54,9 +52,4 @@ int main()
 
         time += dt;
     }
-
-    return 0;
 }
-
-
-

@@ -10,7 +10,7 @@ class Observer
 {
 public:
     virtual void update(float value) = 0;
-    virtual ~Observer() {}
+    virtual ~Observer() = default;
 };
 
 
@@ -21,37 +21,35 @@ public:
     virtual void addObserver(Observer* p) = 0;
     virtual void removeObserver(Observer* p) = 0;
     virtual void notifyObservers() = 0;
-    virtual ~Subject() {}
+    virtual ~Subject() = default;
 };
 
 class Drawable
 {
 public:
     virtual void draw() const = 0;
-    virtual ~Drawable() {}
+    virtual ~Drawable() = default;
 };
 
 
-
-class Slider
+class Slider : public Drawable
 {
-private:
+protected:
     sf::RectangleShape mTrackShape {};
     sf::RectangleShape mThumbShape {};
 
     sf::Color mTrackColor           {200, 200, 220};
     sf::Color mThumbColor           {150, 150, 240};
 
-    sf::RenderWindow& mSfmlWindow;
+    sf::RenderWindow& mRenderWindow;
     bool mIsPressed {false};
-
 
     std::set<Observer*> mObservers;
 
 public:
 
     Slider(sf::RenderWindow& window, sf::Vector2f centerPosition, sf::Vector2f trackSize, sf::Vector2f thumbSize) 
-            : mSfmlWindow(window)
+            : mRenderWindow(window)
     {
         mTrackShape.setSize(trackSize);
         mTrackShape.setOrigin(trackSize / 2.0f);
@@ -64,10 +62,10 @@ public:
         mThumbShape.setFillColor(mThumbColor);
     }
 
-    void draw()
+    void draw() const 
     {
-        mSfmlWindow.draw(mTrackShape);
-        mSfmlWindow.draw(mThumbShape);
+        mRenderWindow.draw(mTrackShape);
+        mRenderWindow.draw(mThumbShape);
     }
 
     void onMouseMove(const sf::Event& event)
@@ -75,7 +73,7 @@ public:
         if (!mIsPressed)
             return;
 
-        sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
+        sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseMove.x, event.mouseMove.y});
         float min = mTrackShape.getPosition().x - mTrackShape.getSize().x / 2.0f;
         float max = mTrackShape.getPosition().x + mTrackShape.getSize().x / 2.0f;
 
@@ -87,7 +85,7 @@ public:
     {
         if (event.mouseButton.button == sf::Mouse::Left) 
         {
-            sf::Vector2f mousePosition = mSfmlWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
+            sf::Vector2f mousePosition = mRenderWindow.mapPixelToCoords({event.mouseButton.x, event.mouseButton.y});
             if (mThumbShape.getGlobalBounds().contains(mousePosition) || mTrackShape.getGlobalBounds().contains(mousePosition)) 
             {
                 mIsPressed = true;
@@ -120,7 +118,6 @@ public:
         return part / mTrackShape.getSize().x * 100.0f;
     }
 
-
     void addObserver(Observer* p) 
     {
         mObservers.insert(p);
@@ -142,14 +139,12 @@ public:
 class Circle : public Observer, public Drawable
 {
 protected:
-
     sf::CircleShape mShape;
-    sf::RenderWindow& mSfmlWindow;
+    sf::RenderWindow& mRenderWindow;
 
 public:
-
     Circle(sf::RenderWindow& window, sf::Vector2f position, float radius) 
-    : mSfmlWindow(window), mShape(radius)
+    : mRenderWindow(window), mShape(radius)
     {
         mShape.setOrigin({radius, radius});
         mShape.setPosition(position);
@@ -158,7 +153,7 @@ public:
 
     void draw() const
     {
-        mSfmlWindow.draw(mShape);
+        mRenderWindow.draw(mShape);
     }
 
     void update(float value) override
@@ -189,12 +184,12 @@ class Square : public Observer, public Drawable
 protected:
 
     sf::RectangleShape mShape;
-    sf::RenderWindow& mSfmlWindow;
+    sf::RenderWindow& mRenderWindow;
 
 public:
 
     Square(sf::RenderWindow& window, sf::Vector2f position, float size) 
-    : mSfmlWindow(window), mShape({size, size})
+    : mRenderWindow(window), mShape({size, size})
     {
         mShape.setOrigin({size / 2, size / 2});
         mShape.setPosition(position);
@@ -203,7 +198,7 @@ public:
 
     void draw() const
     {
-        mSfmlWindow.draw(mShape);
+        mRenderWindow.draw(mShape);
     }
 
     void update(float value) override
@@ -215,7 +210,10 @@ public:
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 800), "Multiple Observers");
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 8;
+
+    sf::RenderWindow window(sf::VideoMode(800, 800), "Multiple Observers", sf::Style::Default, settings);
     window.setFramerateLimit(60);
 
     Slider slider(window, {400, 500}, {500, 20}, {25, 90});

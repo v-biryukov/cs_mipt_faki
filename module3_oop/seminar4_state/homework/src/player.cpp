@@ -6,7 +6,6 @@
 #include "player_states.hpp"
 
 
-
 Player::Player(sf::Vector2f position) : mPosition{position}
 {
     if (!mTexture.loadFromFile("./hero.png"))
@@ -58,7 +57,7 @@ void Player::draw(sf::RenderWindow& window)
 {
     window.draw(mSprite);
 
-    if (false) // For debuging
+    if (false)
     {
         sf::RectangleShape shape {{mCollisionRect.width, mCollisionRect.height}};
         shape.setPosition(mPosition.x + mCollisionRect.left, mPosition.y + mCollisionRect.top);
