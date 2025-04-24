@@ -11,10 +11,6 @@ target_link_libraries(main PUBLIC linkedList)
 
 
 find_package(GTest REQUIRED)
-if(NOT GTest_FOUND)
-    message("GTest not found!")
-endif()
-
 
 add_executable(myTest myTest.cpp)
 target_link_libraries(myTest PUBLIC linkedList)
