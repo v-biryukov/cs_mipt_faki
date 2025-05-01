@@ -4,6 +4,14 @@
 #include <algorithm>
 #include <cmath>
 #include <cassert>
+#include <cstring>
+
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include <stb_image_write.h>
+
 #include "image.hpp"
 
 
@@ -37,7 +45,7 @@ Image::Image()
 
 Image::Image(const std::string& filename)
 {
-    loadPpm(filename);
+    load(filename);
 }
 
 Image::Image(int width, int height) : mWidth(width), mHeight(height)
@@ -58,7 +66,20 @@ Image::Image(int width, int height, Color c) : mWidth(width), mHeight(height)
     }
 }
 
+int Image::getWidth() const 
+{
+    return mWidth;
+}
 
+int Image::getHeight() const 
+{
+    return mHeight;
+}
+
+unsigned char* Image::getData() 
+{
+    return mData.data();
+}
 
 void Image::setPixel(int i, int j, Color c)
 {
@@ -77,6 +98,39 @@ Image::Color Image::getPixel(int i, int j) const
     return {mData[3 * index + 0], mData[3 * index + 1], mData[3 * index + 2]};
 }
 
+void Image::load(const std::string& filename)
+{
+    if (filename.ends_with(".ppm"))
+    {
+        loadPpm(filename);
+    }
+    else if (filename.ends_with(".jpg") || filename.ends_with(".jpeg"))
+    {
+        loadJpeg(filename);
+    }
+    else
+    {
+        std::cout << "Error. File format not supported!" << std::endl;
+        std::exit(1);
+    }
+}
+
+void Image::save(const std::string& filename) const
+{
+    if (filename.ends_with(".ppm"))
+    {
+        savePpm(filename);
+    }
+    else if (filename.ends_with(".jpg") || filename.ends_with(".jpeg"))
+    {
+        saveJpeg(filename);
+    }
+    else
+    {
+        std::cout << "Error. File format not supported!" << std::endl;
+        std::exit(1);
+    }
+}
 
 void Image::loadPpm(const std::string& filename)
 {
@@ -113,6 +167,38 @@ void Image::savePpm(const std::string& filename) const
     out << "P6\n" << mWidth << " " << mHeight << "\n255\n";
     out.write(reinterpret_cast<const char*>(&mData[0]), mData.size());
 }
+
+
+void Image::loadJpeg(const std::string& filename)
+{
+    int width = 0;
+    int height = 0;
+    int channels = 0;
+    unsigned char* stbiData = stbi_load(filename.c_str(), &width, &height, &channels, 0);
+    if (stbiData == nullptr)
+    {
+        std::cout << "Error. Can't open file!" << std::endl;
+        std::exit(1);
+    }
+
+    if (channels != 3)
+    {
+        std::cout << "Error. File format not supported (channels != 3)!" << std::endl;
+        std::exit(1);
+    }
+
+    mWidth = width;
+    mHeight = height;
+    mData.resize(3 * mWidth * mHeight);
+    std::memcpy(mData.data(), stbiData, 3 * mWidth * mHeight);
+    stbi_image_free(stbiData);
+}
+
+void Image::saveJpeg(const std::string& filename) const
+{
+    stbi_write_jpg(filename.c_str(), mWidth, mHeight, 3, mData.data(), 90);
+}
+
 
 
 void Image::drawCircle(int radius, int centerX, int centerY, Color c)
