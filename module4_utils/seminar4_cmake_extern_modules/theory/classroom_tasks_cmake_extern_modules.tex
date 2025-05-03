@@ -105,17 +105,31 @@ frame=none
 
 \section{Поиски файлов}
 \subsection*{\texttt{find\_file}}
+\texttt{CMAKE\_PREFIX\_PATH}.
 \subsection*{\texttt{find\_program} и \texttt{find\_library}}
 
 
-\section{Поиски пакетов}
-\subsection*{\texttt{find\_package}}
+\section{Поиски пакетов, \texttt{find\_package}}
 Как просмотреть добавленные таргеты?\\
 \texttt{<PACKAGE>\_LIBRARIES}\\
 \texttt{<PACKAGE>\_TARGETS}\\
-Просмотр \texttt{IMPORTED\_TARGETS}.
+Просмотр \texttt{IMPORTED\_TARGETS}.\\
+
+\subsection*{Module mode}
+Переменная \texttt{CMAKE\_MODULE\_PATH}.
 
 
+\subsection*{Config mode}
+Алгоритм поиска скрипта в Config mode.\\
+\texttt{CMAKE\_PREFIX\_PATH}.
+
+\subsection*{Опции команды find\_package}
+\texttt{EXACT}\\
+\texttt{QUIET}\\ 
+\texttt{MODULE}\\
+\texttt{REQUIRED}\\
+\texttt{COMPONENTS}
+             
 \section{ExternalProject}
 \texttt{ExternalProject\_Add}. Супербилд.\\
 \texttt{GIT\_REPOSITORY}, \texttt{GIT\_TAG}.
