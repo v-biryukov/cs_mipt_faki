@@ -104,17 +104,17 @@
 
 \title{Семинар: Основы CMake. Домашнее задание.\vspace{-5ex}}\date{}\maketitle
 \subsection{Простой проект}
-В папке \texttt{0simple\_project} содержится исходный код простой программы, которая создаёт изображение. Создайте проект Cmake, который бы собирал этот проект.
+В папке \texttt{0simple\_project} содержится исходный код простой программы, которая создаёт изображение. Создайте проект CMake, который бы собирал этот проект.
 
 \subsection{Библиотека}
 В папке \texttt{1creating\_library} содержится код маленькой библиотеки для работы с изображениями.
-Создайте проект Cmake, который бы создавал статическую библиотеку.
+Создайте проект CMake, который бы создавал статическую библиотеку.
 
 \subsection{Использование библиотеки}
-Перенесите файл библиотеки из прошлой задачи в папку \texttt{2linking\_library}. Создайте проект Cmake, бы подключал статическую библиотеку \texttt{image} к файлу \texttt{main.cpp} и собирал исполняемый файл.
+Перенесите файл библиотеки из прошлой задачи в папку \texttt{2linking\_library}. Создайте проект CMake, бы подключал статическую библиотеку \texttt{image} к файлу \texttt{main.cpp} и собирал исполняемый файл.
 
 \subsection{Работа со списками}
-В файле \texttt{3list/animals.cmake} содержится переменная \texttt{animals}, содержащая список животных. Напишите скрипты Cmake, которые будут делать следующее:
+В файле \texttt{3list/animals.cmake} содержится переменная \texttt{animals}, содержащая список животных. Напишите скрипты CMake, которые будут делать следующее:
 \begin{itemize}
 \item Печатать элементы списка на экран с помощью цикла. Каждое название животного в новой строке.
 \item Печатать количество элементов списка
@@ -143,7 +143,7 @@ cmake --build .
 
 
 \subsection{Функция печати переменной}
-На языка Cmake напишите функцию \texttt{print}, которая должна будет принимать на вход название переменной и печатать название переменной и её значение.
+На языка CMake напишите функцию \texttt{print}, которая должна будет принимать на вход название переменной и печатать название переменной и её значение.
 Например, следующий код:
 
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -160,10 +160,10 @@ VAR = "Cats and Dogs"
 На языке CMake написана функция \texttt{func}, которая печатает количество переданных ей аргументов и значения этих аргументов:
 \begin{Verbatim}[commandchars=\\\{\}]
 \textcolor{teal}{function}(func)
-    \textcolor{teal}{message}(\textcolor{olive}{"Number of arguments = "} ${ARGC})
+    \textcolor{teal}{message}(\textcolor{olive}{"Number of arguments =  $\{ARGC\}"})
     \textcolor{teal}{message}(\textcolor{olive}{"Arguments:"})
     \textcolor{teal}{foreach}(arg IN LISTS ARGV)
-        \textcolor{teal}{message}(${arg})
+        \textcolor{teal}{message}($\{arg\})
     \textcolor{teal}{endforeach}()
     \textcolor{teal}{message}(\textcolor{olive}{"----------------------------"})
 \textcolor{teal}{endfunction}()
@@ -183,9 +183,9 @@ VAR = "Cats and Dogs"
 \item \texttt{func(Cat;Mouse;Dog)}
 \item \texttt{func("Cat;Mouse;Dog")}
 \item \texttt{func(X)}
-\item \texttt{func(\${X})}
-\item \texttt{func("\${X}")}
-\item \texttt{func("Cat;Mouse;Dog" {} "\${X}")}
+\item \texttt{func(\$\{X\})}
+\item \texttt{func("\$\{X\}")}
+\item \texttt{func("Cat;Mouse;Dog" {} "\$\{X\}")}
 \end{enumerate}
 
 Для ответа на этот вопрос запишите результаты по каждому пункт в один текстовый файл.
