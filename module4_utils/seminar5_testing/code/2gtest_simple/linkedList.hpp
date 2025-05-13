@@ -1,7 +1,7 @@
 #pragma once
 #include <cstddef>
 
-template <typename T>
+template<typename T>
 class LinkedList
 {
 private:
