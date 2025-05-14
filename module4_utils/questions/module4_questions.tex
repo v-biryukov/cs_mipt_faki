@@ -18,6 +18,8 @@
 \usepackage{ccaption}
 \usepackage{mathrsfs}
 \usepackage{multicol}
+\setlength{\multicolsep}{6pt}    % отступы сверху и снизу
+
 \usepackage[shortlabels]{enumitem}
 \usepackage{listings}
 \lstset{
@@ -190,7 +192,7 @@
 Цикл \texttt{while}. Цикл \texttt{foreach}. Разновидности цикла \texttt{foreach}: \texttt{RANGE}, \texttt{IN ITEMS} и \texttt{IN LISTS}.
 
 \item \textbf{Функции CMake}\\
-Сколько аргументов могут принимать функции в CMake? Команда \texttt{function} для создания функций. Передача аргументов в функции. Переменные \texttt{ARGC}, \texttt{ARGV} и \texttt{ARGN}. Возврат из функций. \texttt{PARENT\_SCOPE}. 
+Сколько аргументов могут принимать функции в CMake? Команда \texttt{function} для создания функций. Передача аргументов в функции. Переменные \texttt{ARGC}, \texttt{ARGV} и \texttt{ARGN}. Возврат из функций. \texttt{PARENT\_SCOPE}.
 
 \item \textbf{Работа с файлами в CMake. Команда \texttt{file} и её опции.}
 \begin{multicols}{3}
@@ -214,20 +216,161 @@
 
 
 
-
+\newpage
 \item \textbf{CMake: структура проекта, кэшированные переменные, конфиги, генераторные выражения}
 \begin{enumerate}[a.]
-\item \textbf{Модули}\\
-
 \item \textbf{Разделение кода CMake на несколько директорий}\\
+Поддиректории в CMake. Команда \texttt{add\_subdirectory}. 
+Область видимости переменных, объявленных в поддиректории и вне поддиректории. Опция \texttt{PARENT\_SCOPE} команды \texttt{set}. Переменные:
+\begin{itemize}
+\item \texttt{CMAKE\_SOURCE\_DIR}.
+\item \texttt{CMAKE\_BINARY\_DIR}.
+\item \texttt{CMAKE\_CURRENT\_SOURCE\_DIR}
+\item \texttt{CMAKE\_CURRENT\_BINARY\_DIR}
+\end{itemize}
+
+\item \textbf{Модули}\\
+Модули CMake. Скриптовый режим. \texttt{cmake -P}. Подключение модуля. Команда \texttt{include}. Переменные:
+\begin{itemize}
+\item \texttt{CMAKE\_MODULE\_PATH}.
+\item \texttt{CMAKE\_CURRENT\_LIST\_DIR}
+\item \texttt{CMAKE\_CURRENT\_LIST\_FILE}
+\end{itemize}
+Область видимости переменных, объявленных в модуле и вне модуля.
+
 
 \item \textbf{Кэшированные переменные}\\
+Что такое кэшированная переменная CMake и чем она отличается от обычной? Зачем нужны кэшированные переменные. Создание кэшированных переменных с помощью команды \texttt{set}. Создание кэшированных переменных с помощью команды \texttt{option}. Как изменить уже созданную кэшированную переменную? Опция \texttt{FORCE} команды \texttt{set}. Файл \texttt{CMakeCache.txt}. Опция \texttt{-D} программы \texttt{cmake}. Программы \texttt{ccmake} и \texttt{cmake-gui}. "Тип"{} кэшированной переменной и как он используется? Совпаденение имени обычной и кэшированной переменной.
+
+
+\item \textbf{Предопределённые переменные}\\
+Переменные, хранящие информацию о проекте:
+\begin{itemize}
+\item \texttt{PROJECT\_NAME}
+\item \texttt{PROJECT\_SOURCE\_DIR}
+\item \texttt{PROJECT\_BINARY\_DIR}
+\item \texttt{PROJECT\_IS\_TOP\_LEVEL}
+\end{itemize}
+
+Переменные, задающие глобальные опции компиляции:
+\begin{itemize}
+\item \texttt{CMAKE\_C\_FLAGS}
+\item \texttt{CMAKE\_CXX\_FLAGS}
+\item \texttt{CMAKE\_EXE\_LINKER\_FLAGS}
+\end{itemize}
+
+Переменные, предоставляющие информацию о платформе:
+\begin{multicols}{2}
+\begin{itemize}
+\item \texttt{CMAKE\_C\_COMPILER}
+\item \texttt{CMAKE\_CXX\_COMPILER}
+\item \texttt{CMAKE\_GENERATOR}
+\item \texttt{CMAKE\_SYSTEM\_NAME}
+\item \texttt{UNIX}
+\item \texttt{APPLE}
+\item \texttt{WIN32}
+\item \texttt{MSVC}
+\end{itemize}
+\end{multicols}
+Информация о самой программе \texttt{cmake}:
+\begin{itemize}
+\item \texttt{CMAKE\_ROOT}
+\item \texttt{CMAKE\_VERSION}
+\end{itemize}
 
 \item \textbf{Свойства}\\
+Что такое свойства в CMake? Чем свойства отличаются от переменных? Команды \texttt{get\_property} и \texttt{set\_property}. Глобальные свойства. Свойства директорий:
+\begin{multicols}{2}
+\begin{itemize}
+\item \texttt{VARIABLES}
+\item \texttt{CACHE\_VARIABLES}
+\item \texttt{SUBDIRECTORIES}
+\item \texttt{BUILDSYSTEM\_TARGETS}
+\item \texttt{IMPORTED\_TARGETS}
+\item \texttt{TESTS}
+\item \texttt{PARENT\_DIRECTORY}
+\end{itemize}
+\end{multicols}
+
+\newpage
+Свойства таргетов:
+\begin{multicols}{2}
+\begin{itemize}
+\item \texttt{INCLUDE\_DIRECTORIES}
+\item \texttt{COMPILE\_DEFINITIONS}
+\item \texttt{COMPILE\_FEATURES}
+\item \texttt{COMPILE\_OPTIONS}
+\item \texttt{LINK\_DIRECTORIES}
+\item \texttt{LINK\_LIBRARIES}
+\item \texttt{LINK\_OPTIONS}
+\item \texttt{INTERFACE\_INCLUDE\_DIRECTORIES}
+\item \texttt{INTERFACE\_COMPILE\_DEFINITIONS}
+\item \texttt{INTERFACE\_COMPILE\_FEATURES}
+\item \texttt{INTERFACE\_COMPILE\_OPTIONS}
+\item \texttt{INTERFACE\_LINK\_DIRECTORIES}
+\item \texttt{INTERFACE\_LINK\_LIBRARIES}
+\item \texttt{INTERFACE\_LINK\_OPTIONS}
+\item \texttt{SOURCES}
+\item \texttt{TYPE}
+\item \texttt{IMPORTED}
+\item \texttt{OUTPUT\_NAME}
+\item \texttt{OUTPUT\_NAME\_<CONFIG>}
+\item \texttt{ARCHIVE\_OUTPUT\_DIRECTORY}
+\item \texttt{ARCHIVE\_OUTPUT\_DIRECTORY\_<CONFIG>}
+\item \texttt{LIBRARY\_OUTPUT\_DIRECTORY}
+\item \texttt{LIBRARY\_OUTPUT\_DIRECTORY\_<CONFIG>}
+\item \texttt{RUNTIME\_OUTPUT\_DIRECTORY}
+\item \texttt{RUNTIME\_OUTPUT\_DIRECTORY\_<CONFIG>}
+\item \texttt{C\_STANDARD}
+\item \texttt{CXX\_STANDARD}
+\end{itemize}
+\end{multicols}
+Свойства файлов исходного кода. Свойства тестов.
 
 \item \textbf{Типы сборки}\\
-
+Основные типы сборки:
+\begin{itemize}
+\item (Пустой тип сборки)
+\item \texttt{Release}
+\item \texttt{Debug}
+\item \texttt{RelWithDebInfo}
+\item \texttt{MinSizeRel}
+\end{itemize}
+Как тип сборки влияет на опции компиляции? 
+Одноконфигурационные и мультиконфигурационные генераторы. Как задать тип сборки в случае одноконфигурационного генератора и в случае мультиконфигурационного генератора? Переменные:
+\begin{itemize}
+\item \texttt{CMAKE\_BUILD\_TYPE}
+\item \texttt{CMAKE\_CONFIGURATION\_TYPES}
+\end{itemize}
+Глобальное свойство:
+\begin{itemize}
+\item \texttt{GENERATOR\_IS\_MULTI\_CONFIG}
+\end{itemize}
+Как написать код, который бы работал для одноконфигурационных и мультиконфигурационных генераторов.
+Создание пользовательского типа сборки. Кэшированные переменные:
+\begin{itemize}
+\item \texttt{CMAKE\_CXX\_FLAGS\_<CONFIG>}
+\item \texttt{CMAKE\_C\_FLAGS\_<CONFIG>}
+\item \texttt{CMAKE\_EXE\_LINKER\_FLAGS\_<CONFIG>}
+\end{itemize}
 \item \textbf{Генераторные выражения}\\
+Этапы сборки CMake-проекта:
+\begin{enumerate}
+\item Этап конфигурации
+\item Этап генерации
+\item Этап сборки
+\end{enumerate}
+
+Генераторные выражения. Привести пример применения генераторного выражения. Какие команды CMake поддерживают генераторные выражения? Основные виды генераторных выражений:
+\begin{itemize}
+\item \texttt{\$<условие:значение>}
+\item \texttt{\$<BOOL:значение>}
+\item Логические операции \texttt{OR}, \texttt{AND},  \texttt{NOT}.
+\item \texttt{\$<CONFIG:тип\_сборки>}
+\item \texttt{\$<PLATFORM\_ID:имя\_платформы>}
+\item \texttt{\$<TARGET\_FILE:таргет>}
+\end{itemize}
+
 
 \end{enumerate}
 
@@ -235,25 +378,78 @@
 
 
 
-
+\newpage
 \item \textbf{CMake: подключение сторонних библиотек}
 \begin{enumerate}[a.]
 \item \textbf{Ручное подключение сторонней библиотеки}\\
+Как подключить библиотеку, если есть только файлы самой библиотеки без скриптов сборки?
+Преимущества и недостатки этого метода подключения сторонних библиотек.
 
 \item \textbf{Подключение с помощью \texttt{add\_subdirectory}}\\
-
+Как подключить другой CMake-проект с помощью \texttt{add\_subdirectory}?
+Преимущества и недостатки этого метода подключения сторонних библиотек.
 
 \item \textbf{\texttt{find\_package}}\\
+Команда \texttt{find\_file}. Алгормтм поиска файла в системе при использовании \texttt{find\_file}. Переменные:
+\begin{itemize}
+\item \texttt{<ИмяПакета>\_ROOT}
+\item \texttt{CMAKE\_PREFIX\_PATH}
+\item \texttt{CMAKE\_INCLUDE\_PATH}
+\item \texttt{CMAKE\_FRAMEWORK\_PATH}
+\item \texttt{CMAKE\_SYSTEM\_PREFIX\_PATH}
+\end{itemize}
+Опции \texttt{HINTS} и \texttt{PATHS}. Команды \texttt{find\_library} и \texttt{find\_program}.\\
+Команда \texttt{find\_package} и её опции:
+\begin{itemize}
+\item \texttt{REQUIRED}
+\item \texttt{COMPONENTS}
+\end{itemize}
+Два режима работы команды \texttt{find\_package}:
+\begin{enumerate}
+\item Режим поиска модуля:\\
+Какой файл ищет CMake в этом режиме? Алгоритм поиска файла. Переменная \texttt{CMAKE\_MODULE\_PATH}.
+\item Режим поиска конфигурационного файла:\\
+Какой файл ищет CMake в этом режиме? Алгоритм поиска файла. Переменные:
+\begin{itemize}
+\item \texttt{<ИмяПакета>\_ROOT}
+\item \texttt{CMAKE\_PREFIX\_PATH}
+\item \texttt{CMAKE\_FRAMEWORK\_PATH}
+\item \texttt{CMAKE\_APPBUNDLE\_PATH}
+\end{itemize}
+\end{enumerate}
+
+Переменные, создаваемые командой \texttt{find\_package}:
+\begin{itemize}
+\item \texttt{<PackageName>\_FOUND}
+\item \texttt{<PackageName>\_LIBRARIES}
+\end{itemize}
+Импортированные таргеты, создаваемые командой \texttt{find\_package}.\\
+Преимущества и недостатки \texttt{find\_package} для подключения сторонних библиотек.
 
 
 \item \textbf{\texttt{ExternalProject}}\\
-
+Команда \texttt{ExternalProject\_Add} и её опции:
+\begin{itemize}
+\item \texttt{GIT\_REPOSITORY} 
+\item \texttt{GIT\_TAG}
+\item \texttt{DOWNLOAD\_COMMAND}
+\item \texttt{BUILD\_COMMAND}
+\item \texttt{INSTALL\_COMMAND}
+\end{itemize}
+Преимущества и недостатки этого метода подключения сторонних библиотек.
 
 \item \textbf{\texttt{FetchContent}}\\
-
+Команда \texttt{FetchContent\_Declare} и её опции:
+\begin{itemize}
+\item \texttt{GIT\_REPOSITORY} 
+\item \texttt{GIT\_TAG}
+\end{itemize}
+Команда texttt{FetchContent\_MakeAvailable}.
+Чем \texttt{FetchContent} отличается от \texttt{ExternalProject}?
+Преимущества и недостатки этого метода подключения сторонних библиотек.
 
 \item \textbf{Пакетный менеджер \texttt{conan}}\\
-
+Пакетные менеджеры для библиотеки на языках C и C++. Использование пакетного менеджера \texttt{conan} совместно с \texttt{find\_package}. Преимущества и недостатки этого метода подключения сторонних библиотек.
 
 \end{enumerate}
 
