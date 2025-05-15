@@ -482,10 +482,60 @@
 \item Опция \texttt{--timeout}
 \end{itemize}
 
-\item \textbf{GoogleTest}\\
+\item \textbf{Подключение GoogleTest}\\
+Подключение библиотеки \texttt{Google Test} с помощью CMake.
+Таргеты \texttt{gtest} и \texttt{gtest\_main}.
 
+\item \textbf{GoogleTest}\\
+Создание простых тестов. Макрос \texttt{TEST}. Наборы тестов.
+\texttt{EXPECT\_} и \texttt{ASSERT\_} проверки. В чём отличие между ними?
+Проверки:
+\begin{itemize}
+\item \texttt{EXPECT\_TRUE}, \texttt{EXPECT\_FALSE}
+\item \texttt{EXPECT\_EQ}, \texttt{EXPECT\_LE} и т. д.
+\item \texttt{EXPECT\_STREQ}
+\item \texttt{EXPECT\_FLOAT\_EQ}, \texttt{EXPECT\_NEAR}
+\item \texttt{EXPECT\_THROW}, \texttt{EXPECT\_ANY\_THROW}, \texttt{EXPECT\_NO\_THROW}
+\item \texttt{EXPECT\_DEATH}, \texttt{EXPECT\_EXIT}
+\end{itemize}
+Фикстуры (англ. \textit{fixtures}). Макрос \texttt{TEST\_F}. Отключение тестов с помощью \texttt{DISABLED\_}.
 
 \item \textbf{GoogleMock}\\
+Мок-объекты. Создание мок-классов. Макрос \texttt{MOCK\_METHOD}. Задание ожиданий. Макрос \texttt{EXPECT\_CALL}. Методы \texttt{Times}, \texttt{WillOnce} и \texttt{WillRepeatedly}.
+Кардинальности:
+\begin{itemize}
+\item \texttt{testing::AnyNumber}
+\item \texttt{testing::AtLeast}
+\item \texttt{testing::AtMost}
+\item \texttt{testing::Between}
+\item \texttt{testing::Exactly}
+\end{itemize}
+
+Матчеры:
+\begin{multicols}{2}
+\begin{itemize}
+\item \texttt{testing::\_}
+\item \texttt{testing::Any<T>}
+\item \texttt{testing::Eq}, \texttt{testing::Gt}, и т. д.
+\item \texttt{testing::Contains}
+\item \texttt{testing::Truly}
+\item \texttt{testing::AllOf}
+\item \texttt{testing::AnyOf}
+\item \texttt{testing::ElementsAre}
+\end{itemize}
+\end{multicols}
+
+Действия:
+\begin{multicols}{2}
+\begin{itemize}
+\item \texttt{testing::Return}
+\item \texttt{testing::ReturnNew}
+\item \texttt{testing::SetArgReferee}
+\item \texttt{testing::Throw}
+\item \texttt{testing::Invoke}
+\item \texttt{testing::DoAll}
+\end{itemize}
+\end{multicols}
 
 \end{enumerate}
 
