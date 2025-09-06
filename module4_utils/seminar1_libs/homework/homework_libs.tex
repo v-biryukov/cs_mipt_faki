@@ -1,0 +1,276 @@
+\documentclass{article}
+\usepackage[english,russian]{babel}
+\usepackage{textcomp}
+\usepackage{geometry}
+  \geometry{left=2cm}
+  \geometry{right=1.5cm}
+  \geometry{top=1.5cm}
+  \geometry{bottom=2cm}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\pagenumbering{gobble}
+\usepackage{multicol}
+
+\lstdefinestyle{csMiptCppStyle}{
+  language=C++,
+  basicstyle=\linespread{1.1}\ttfamily,
+  columns=fixed,
+  fontadjust=true,
+  basewidth=0.5em,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray},
+  texcl=true,
+  stringstyle=\ttfamily\color{orange!50!black},
+  showstringspaces=false,
+  numbersep=5pt,
+  numberstyle=\tiny\color{black},
+  numberfirstline=true,
+  stepnumber=1,      
+  numbersep=10pt,
+  backgroundcolor=\color{white},
+  showstringspaces=false,
+  captionpos=b,
+  breaklines=true
+  breakatwhitespace=true,
+  xleftmargin=.2in,
+  extendedchars=\true,
+  keepspaces = true,
+  tabsize=4,
+  upquote=true,
+  frame=none,
+  emph={if, else, elif, endif, include, define, defined},
+  emphstyle={\color{blue}},
+  literate=*{\#}{{\textcolor{blue}{\#}}}{1},
+}
+
+
+\lstdefinestyle{csMiptCppLinesStyle}{
+  style=csMiptCppStyle,
+  frame=lines,
+}
+
+\lstdefinestyle{csMiptCppBorderStyle}{
+  style=csMiptCppStyle,
+  framexleftmargin=5mm, 
+  frame=shadowbox, 
+  rulesepcolor=\color{gray}
+}
+
+
+\lstdefinestyle{csMiptBash}{
+frame=none,
+breaklines=true,
+language=bash,
+breakatwhitespace=true,
+alsoletter={*()"'0123456789.},
+alsoother={\{\=\}},
+basicstyle={\ttfamily},
+keywordstyle={\bfseries},
+literate={{=}{{{=}}}1},
+prebreak={\textbackslash},
+sensitive=true,
+stepnumber=1,
+tabsize=4,
+morekeywords={echo, function},
+otherkeywords={-, \{, \}},
+literate={\$\{}{{{{\bfseries{}\$\{}}}}2,
+upquote=true,
+}
+
+
+
+
+\lstset{style=csMiptCppLinesStyle}
+\lstset{literate={~}{{\raisebox{0.5ex}{\texttildelow}}}{1}}
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\makeatletter
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+   {\csname the#1\endcsname\quad}%    default
+   {\csname #1@cntformat\endcsname}}% enable individual control
+\newcommand\section@cntformat{}     % section level 
+\newcommand\subsection@cntformat{Задача \thesubsection.\space} % subsection level
+\newcommand\subsubsection@cntformat{\thesubsubsection.\space} % subsubsection level
+\makeatother
+
+\begin{document}
+\title{Семинар \#1: Компиляции. Домашнее задание. \vspace{-5ex}}\date{}\maketitle
+
+В некоторых задачах этого домашнего задания необходимо будет создавать скрипты командной строки. Такие скрипты могут содержать несколько команд командной строки. При исполнении такого скрипта будут исполняться все эти команды. Если в задании говорится, что нужно создать скрипт, то подразумевается следующее:
+
+\begin{itemize}
+\item Если вы используете Windows:\\
+Нужно будет создать batch-скрипт -- это файл с расширением \texttt{.bat}. Этот файл должен содержать все команды, которые обычно вводятся в командную строку. Запустить этот скрипт можно просто напечатав его имя в командной строке. Например, если файл называется \texttt{dog.bat}, то для его запуска нужно перейти в командной строке в папку, где этот файл находится, и написать следующее:
+\begin{lstlisting}[style=csMiptBash]
+dog.bat
+\end{lstlisting}
+\item Если вы используете Linux или macOS:\\
+Нужно будет создать bash-скрипт -- это файл с расширением \texttt{.sh}, первая строка которого имеет вид:
+\begin{lstlisting}[style=csMiptBash]
+#!/bin/bash
+\end{lstlisting}
+После этого следуют все команды, которые обычно вводятся в командную строку.
+Если файл называется \texttt{dog.sh}, то для его запуска нужно перейти в командной строке в папку, где этот файл находится, и написать следующее:
+\begin{lstlisting}[style=csMiptBash]
+chmod +x ./dog.sh        # изменяем права доступа, нужно выполнить только 1 раз 
+./dog.sh                 # запускаем файл
+\end{lstlisting}
+\end{itemize} 
+
+\noindent \textbf{Все материалы к этому заданию находятся в папке \texttt{seminar1\_libs/homework/code}}\\
+\noindent \textbf{!! Делайте каждую задачу в отдельной папке}
+
+\subsection{Раздельная компиляция: функции и структуры}
+В папке \texttt{homework/code/01sep\_dynarray} лежит файл \texttt{dynarray.c} в котором находится простейшая реализация динамического массива, написанная на языке C. Вам нужно разделить этот файл на три части:
+\begin{itemize}
+\item Файл \texttt{dynarray.h} -- должен содержать все объявления, относящиеся к динамическому массиву.
+\item Файл \texttt{dynarray.c} -- должен содержать определения всех функций, относящиихся к динамическому массиву.
+\item Файл \texttt{main.c} -- должен содержать только функцию \texttt{main}.
+\end{itemize}
+Убедитесь, что программа состоящая из этих трёх файлов компилируется:
+\begin{lstlisting}[style=csMiptBash]
+gcc main.c dynarray.c
+\end{lstlisting}
+
+
+\subsection{Раздельная компиляция: класс}
+В папке \texttt{02sep\_time} лежит файл \texttt{time.cpp} в котором находится класс \texttt{Time}. Вам нужно разделить этот файл на три части:
+\begin{itemize}
+\item Файл \texttt{time.hpp} -- должен содержать все объявления, относящиеся к классу \texttt{Time}.
+\item Файл \texttt{time.cpp} -- должен содержать определения всех функций, относящихся к классу \texttt{Time}.
+\item Файл \texttt{main.cpp} -- должен содержать только функцию \texttt{main}.
+\end{itemize}
+\subsection{Раздельная компиляция: шаблоны}
+В папке \texttt{03sep\_template} лежит файл \texttt{tmath.cpp} в котором находится шаблонные функции \texttt{sum} и \texttt{mult}. Предполагается, что эти функции будут работать только с типами \texttt{int}, \texttt{unsigned int}, \texttt{float} и \texttt{double}. Вам нужно разделить этот файл на три части:
+\begin{itemize}
+\item Файл \texttt{tmath.hpp} -- должен содержать объявления шаблонных функции.
+\item Файл \texttt{tmath.cpp} -- должен содержать определения шаблонных функций.
+\item Файл \texttt{main.cpp} -- должен содержать только функцию \texttt{main}.
+\end{itemize}
+
+
+\subsection{Этапы компиляции}
+В папке \texttt{04stages} лежит файл \texttt{hello.c}. Вам нужно написать скрипт, который бы создавал промежуточные файлы со всех этапов компиляции для этого файла. После запуска скрипта должны создаваться:
+\begin{enumerate}
+\item Файл \texttt{hello.i} -- код после этапа препроцессинга.
+\item Файл \texttt{hello.s} -- код ассемблера после этапа компиляции.
+\item Файл \texttt{hello.o} -- машинный код после этапа ассемблирования.
+\item Исполняемый файл (\texttt{hello.exe} на Windows или просто \texttt{hello} на Linux)
+\end{enumerate}
+
+
+\subsection{Definitions}
+В папке \texttt{05definitions} лежит программа, состоящая из пяти файлов. В файле \texttt{alice.c} содержится функция \texttt{cat}, которая печатает на экран либо строку \texttt{ALICE:CAT} либо строку \texttt{alice:cat} в зависимости от того, был ли определён макрос \texttt{UPPERCASE}. В файле \texttt{bob.c} содержится аналогичная функция \texttt{dog}. В файле \texttt{main.c} просто вызываются функции \texttt{cat} и \texttt{dog}. Вам нужно написать скрипт, который бы компилировал эту программу таким образом, чтобы на экран выводились строки:
+\begin{lstlisting}[style=csMiptBash]
+ALICE:CAT
+bob:dog
+\end{lstlisting}
+Изменять сами файлы программы нельзя.
+
+
+\subsection{Функции с одинаковым названием}
+В папке \texttt{06function\_same\_name} лежит программа, состоящая из пяти файлов. В файле \texttt{alice.c} содержатся две функции: \texttt{cat} и \texttt{hello}, причём функция \texttt{cat} вызывает функцию \texttt{hello}. В файле \texttt{bob.c} содержатся две функции: \texttt{dog} и \texttt{hello}, причём функция \texttt{dog} вызывает функцию \texttt{hello}. В файле \texttt{main.c} просто вызываются функции \texttt{cat} и \texttt{dog}.
+Но данная программа не компилируется из-за ошибки:
+\begin{lstlisting}[style=csMiptBash]
+multiple definition of `hello'
+\end{lstlisting}
+Исправьте данную программу, не меняя имена функций.
+
+\subsection{Общая переменная}
+В папке \texttt{07common\_variable} лежит программа, состоящая из пяти файлов. В файле \texttt{alice.c} содержится глобальная переменная \texttt{value} и функция \texttt{cat}, которая изменяет эту глобальную переменную. В файле \texttt{bob.c} также содержится глобальная переменная \texttt{value} и функция \texttt{dog}, которая изменяет эту глобальную переменную. В файле \texttt{main.c} просто вызываются функции \texttt{cat} и \texttt{dog} несколько раз и печатается значение переменной \texttt{value}.
+
+Предполагалось, что переменная \texttt{value} будет одна на всю программу и функции \texttt{cat}, \texttt{dog} и \texttt{main} должны работать с одной и той же глобальной переменной. Однако, при попытке компиляции данной программы происходит ошибка:
+\begin{lstlisting}[style=csMiptBash]
+ multiple definition of `value'
+\end{lstlisting}
+Исправьте эту программу так, чтобы функции \texttt{cat}, \texttt{dog} и \texttt{main} работали с одной и той же глобальной переменной.
+
+
+\subsection{Создание статической библиотеки}
+В папке \texttt{08create\_static} лежит программа, состоящая из пяти файлов. Вам нужно будет написать скрипт, который бы создавал статическую библиотеку под названием \texttt{house}. Библиотека должна будет содержать скомпилированный код из файлов \texttt{alice.c} и \texttt{bob.c}. Название библиотеки должно иметь вид:
+\begin{itemize}
+\item \texttt{libhouse.a} -- если вы компилируете на Linux, macOS или если вы используете компилятор MinGW на Windows.
+\item \texttt{house.lib} -- если вы компилируете на Windows, используя компилятор MSVC.
+\end{itemize}
+
+\subsection{Подключение статической библиотеки}
+В этой задаче нужно будет подключить статическую библиотеку из предыдущей задачи. В папке\\ \texttt{09link\_static} лежит заготовка проекта. Вам нужно скопировать эту папку себе и добавьте файл статической библиотеки в подпапку \texttt{external/lib}. Структура проекта в папке \texttt{09link\_static} должна иметь вид:
+\begin{verbatim}
+09link_static
+|--main.c
+|--external
+   |--include
+      |--alice.h
+      |--bob.h
+   |--lib
+      |--libhouse.a   (или другое имя, в зависимости от системы)
+\end{verbatim}
+В этой задаче вам нужно будет написать скрипт, который бы компилировал программу, подключая статическую библиотеку к исходному файлу \texttt{main.c}.
+
+\subsection{Создание динамической библиотеки}
+В папке \texttt{10create\_dynamic} лежит программа, состоящая из пяти файлов. Вам нужно будет написать скрипт, который бы создавал динамическую библиотеку под названием \texttt{house}. Библиотека должна будет содержать скомпилированный код из файлов \texttt{alice.c} и \texttt{bob.c}. Название библиотеки должно иметь вид:
+\begin{itemize}
+\item \texttt{libhouse.so} -- если вы компилируете на Linux.
+\item \texttt{libhouse.dylib} -- если вы компилируете на macOS.
+\item \texttt{house.dll} -- если вы компилируете на Windows (MSVC или MinGW).
+\end{itemize}
+
+\subsection{Подключение динамической библиотеки}
+В этой задаче нужно будет подключить динамическую библиотеку из предыдущей задачи. В папке\\
+\texttt{11link\_dynamic} лежит заготовка проекта. Вам нужно скопировать эту папку себе и добавьте файл динамической библиотеки в подпапку \texttt{external/lib}. Структура проекта в папке \texttt{11link\_dynamic} должна иметь вид:
+\begin{verbatim}
+11link_dynamic
+|--main.c
+|--external
+   |--include
+      |--alice.h
+      |--bob.h
+   |--lib
+      |--libhouse.so   (или другое имя, в зависимости от системы)
+\end{verbatim}
+В этой задаче вам нужно будет написать 2 скрипта. Первый скрипт должен компилировать программу, подключая динамическую библиотеку к исходному файлу \texttt{main.c}. Второй скрипт должен запускать скомпилированный исполняемый файл.
+
+\subsection{Подключение динамической библиотеки во время выполнения}
+В предыдущей задаче динамическая библиотека подключалась во время запуска программы, но динамическую библиотеку можно подключить и в произвольный момент во время выполнения. Чтобы это сделать, нужно воспользоваться специальными библиотеками, представляемыми операционной системой.
+
+\begin{itemize}
+\item Если вы используете Linux или macOS, то вам нужно будет использовать библиотеку \texttt{dlfcn.h}.
+\item Если вы используете Windows, то вам нужно будет использовать функции \texttt{LoadLibrary}, \texttt{GetProcAddress} и \texttt{FreeLibrary} из библиотеку \texttt{windows.h}.
+\end{itemize}
+Скопируйте папку \texttt{12link\_dynamic\_runtime} и добавьте в подпапку \texttt{external/lib} файл динамической библиотеке, созданный в задаче 10. После этого изменить файл \texttt{main.c} так, чтобы он подключал динамическую библиотеку во время выполнения.
+
+
+\subsection{Общая функция}
+В папке \texttt{13common\_function} лежит программа, написанная на C++, состоящая из шести файлов. В файле \texttt{hello.hpp} содержится функция \texttt{hello}. В файле \texttt{alice.cpp} содержатся функция \texttt{cat}, которая вызывает функцию \texttt{hello}. В файле \texttt{bob.cpp} содержатся функция \texttt{dog}, которая также вызывает функцию \texttt{hello}. В файле \texttt{main.cpp} просто вызываются функции \texttt{cat} и \texttt{dog}. Но данная программа не компилируется из-за ошибки:
+\begin{lstlisting}[style=csMiptBash]
+multiple definition of `hello'
+\end{lstlisting}
+Исправьте данную программу, не меняя имена функций и не используя \texttt{static}.
+
+
+
+\subsection{Проект Image}
+В папке \texttt{14image} содержится простой проект, написанный на C++ (стандарт C++20).
+Проект содержит:
+\begin{itemize}
+\item Файл \texttt{main.cpp}, содержащий функцию \texttt{main}. Этот файл использует класс \texttt{Image}.
+\item Файлы \texttt{image.cpp} и \texttt{image.hpp}, в которых содержится код класса \texttt{Image}.\\
+Этот класс использует стороннюю библиотеку \texttt{stb}.
+\item Сторонняя библиотека \texttt{stb} также находится в нашем проекте (в папке \texttt{external/stb}).
+\end{itemize}
+Результатом данного проекта должны являться:
+\begin{itemize}
+\item Статическая библиотека, содержащая код класса \texttt{Image}.
+\item Исполняемый файл.
+\end{itemize}
+Напишите скрипт, который будет собирать проект (то есть создавать библиотеку и исполняемый файл). Менять код и структуру проекта нельзя.
+
+
+\subsection{Подключение zlib}
+
+
+
+
+\end{document}

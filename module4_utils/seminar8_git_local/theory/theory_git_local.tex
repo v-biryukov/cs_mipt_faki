@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage[english,russian]{babel}
+\usepackage{textcomp}
+\usepackage{geometry}
+  \geometry{left=2cm}
+  \geometry{right=1.5cm}
+  \geometry{top=1.5cm}
+  \geometry{bottom=2cm}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{listings}
+\pagenumbering{gobble}
+
+\lstdefinestyle{csMiptCppStyle}{
+  language=C++,
+  basicstyle=\linespread{1.1}\ttfamily,
+  columns=fixed,
+  fontadjust=true,
+  basewidth=0.5em,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray},
+  texcl=true,
+  stringstyle=\ttfamily\color{orange!50!black},
+  showstringspaces=false,
+  numbersep=5pt,
+  numberstyle=\tiny\color{black},
+  numberfirstline=true,
+  stepnumber=1,      
+  numbersep=10pt,
+  backgroundcolor=\color{white},
+  showstringspaces=false,
+  captionpos=b,
+  breaklines=true
+  breakatwhitespace=true,
+  xleftmargin=.2in,
+  extendedchars=\true,
+  keepspaces = true,
+  tabsize=4,
+  upquote=true,
+  frame=none,
+  emph={if, else, elif, endif, include, define, defined},
+  emphstyle={\color{blue}},
+  literate=*{\#}{{\textcolor{blue}{\#}}}{1},
+}
+
+
+\lstdefinestyle{csMiptCppLinesStyle}{
+  style=csMiptCppStyle,
+  frame=lines,
+}
+
+\lstdefinestyle{csMiptCppBorderStyle}{
+  style=csMiptCppStyle,
+  framexleftmargin=5mm, 
+  frame=shadowbox, 
+  rulesepcolor=\color{gray}
+}
+
+
+\lstdefinestyle{csMiptBash}{
+breaklines=true,
+frame=tb,
+language=bash,
+breakatwhitespace=true,
+alsoletter={*()"'0123456789.},
+alsoother={\{\=\}},
+basicstyle={\ttfamily},
+keywordstyle={\bfseries},
+literate={{=}{{{=}}}1},
+prebreak={\textbackslash},
+sensitive=true,
+stepnumber=1,
+tabsize=4,
+morekeywords={echo, function},
+otherkeywords={-, \{, \}},
+literate={\$\{}{{{{\bfseries{}\$\{}}}}2,
+upquote=true,
+frame=none
+}
+
+
+\lstset{style=csMiptCppLinesStyle}
+\lstset{literate={~}{{\raisebox{0.5ex}{\texttildelow}}}{1}}
+
+
+\renewcommand{\thesection}{\arabic{section}}
+\makeatletter
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+   {\csname the#1\endcsname\quad}%    default
+   {\csname #1@cntformat\endcsname}}% enable individual control
+\newcommand\section@cntformat{Часть \thesection:\space}
+\makeatother
+
+
+
+
+\begin{document}
+\title{Семинар \#6: Git \vspace{-5ex}}\date{}\maketitle
+
+\section{Настройки}
+Системные, глобальные и локальные настройки. Файл \texttt{.gitconfig}. Файл \texttt{.git/config}.\\
+\texttt{git config} и его опции:
+\begin{itemize}
+\item \texttt{-h}
+\item \texttt{-{}-list}
+\item \texttt{-{}-global}
+\item \texttt{-{}-unset}
+\end{itemize}
+
+Настройки:
+\begin{itemize}
+\item \texttt{user.name}
+\item \texttt{user.email}
+\item \texttt{core.editor}
+\end{itemize}
+
+
+\section{Создание репозитория. Простая работа с репозиторием}
+\begin{itemize}
+\item \texttt{git init}
+\item \texttt{git add}
+\item \texttt{git commit}
+\item \texttt{git status}
+\end{itemize}
+Пустые директории. Файл \texttt{.gitkeep}.\\
+Игнорирование. Файл \texttt{.gitignore}.
+
+
+\section{Отмена изменений}
+\begin{itemize}
+\item \texttt{git add -A}
+\item \texttt{git rm}
+\item \texttt{git rm -{}-cached}
+\item \texttt{git rm -f}
+\item \texttt{git restore}
+\item \texttt{git reset}
+\item \texttt{git reset -{}-hard}
+\end{itemize}
+
+\section{Просмотр информации о коммитах}
+\begin{itemize}
+\item \texttt{git show}
+\item \texttt{git log}
+\item \texttt{git log -{}-oneline -{}-decorate -{}-graph -{}-all}
+\end{itemize}
+
+
+\section{Ветки}
+\begin{itemize}
+\item \texttt{git branch}
+\item \texttt{git branch -v}
+\item \texttt{git branch -f}
+\item \texttt{git switch}
+\item \texttt{git switch -c}
+\end{itemize}
+Индексация коммитов.
+
+\end{document}

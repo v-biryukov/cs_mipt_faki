@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="event_queue.svg"
+   inkscape:export-filename="C:\Users\vova\workspace\latex\cs_mipt_faki\module3_oop\seminar1_sfml\images\event_queue.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutM"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1254"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutS"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutS"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1257"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.2)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1124"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1130"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-4"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1254-0"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-4-2"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1254-0-9"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutM-4-2-9"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1254-0-9-4"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.4)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="530.84226"
+     inkscape:cy="700.47917"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="2560"
+     inkscape:window-height="1358"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#d7e3f4;fill-opacity:1;stroke:#000000;stroke-width:0.35473466;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect815"
+       width="47.53635"
+       height="12.611799"
+       x="70.610313"
+       y="110.24892"
+       ry="0.010728133" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.09083128px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.21915166"
+       x="74.302612"
+       y="117.86663"
+       id="text819"><tspan
+         sodipodi:role="line"
+         id="tspan817"
+         x="74.302612"
+         y="117.86663"
+         style="stroke-width:0.21915166">MouseButtonPressed</tspan></text>
+    <rect
+       style="opacity:1;fill:#d7e3f4;fill-opacity:1;stroke:#000000;stroke-width:0.35473469;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect815-0-1"
+       width="47.53635"
+       height="12.611799"
+       x="70.610313"
+       y="122.8607"
+       ry="0.010728133" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.09083128px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.21915166"
+       x="94.365273"
+       y="130.47844"
+       id="text819-8-7"><tspan
+         sodipodi:role="line"
+         id="tspan817-4-1"
+         x="94.365273"
+         y="130.47844"
+         style="text-align:center;text-anchor:middle;stroke-width:0.21915166">KeyPressed</tspan></text>
+    <rect
+       style="opacity:1;fill:#d7e3f4;fill-opacity:1;stroke:#000000;stroke-width:0.35473472;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect815-0-1-7"
+       width="47.53635"
+       height="12.611799"
+       x="70.610313"
+       y="97.637115"
+       ry="0.010728133" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.09083128px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.21915166"
+       x="94.365273"
+       y="105.25484"
+       id="text819-8-7-4"><tspan
+         sodipodi:role="line"
+         id="tspan817-4-1-1"
+         x="94.365273"
+         y="105.25484"
+         style="text-align:center;text-anchor:middle;stroke-width:0.21915166">KeyPressed</tspan></text>
+    <rect
+       style="opacity:1;fill:#d7e3f4;fill-opacity:1;stroke:#000000;stroke-width:0.35473472;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect815-0-1-7-3"
+       width="47.53635"
+       height="12.611799"
+       x="70.610313"
+       y="85.025314"
+       ry="0.010728133" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.09083128px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.21915166"
+       x="94.36528"
+       y="92.643036"
+       id="text819-8-7-4-9"><tspan
+         sodipodi:role="line"
+         id="tspan817-4-1-1-2"
+         x="94.36528"
+         y="92.643036"
+         style="text-align:center;text-anchor:middle;stroke-width:0.21915166">MouseButtonReleased</tspan></text>
+    <rect
+       style="opacity:1;fill:#d7e3f4;fill-opacity:1;stroke:#000000;stroke-width:0.35473472;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect815-0-1-7-3-5"
+       width="47.53635"
+       height="12.611799"
+       x="70.610313"
+       y="72.413513"
+       ry="0.010728133" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.09083128px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.21915166"
+       x="94.36528"
+       y="80.031242"
+       id="text819-8-7-4-9-2"><tspan
+         sodipodi:role="line"
+         id="tspan817-4-1-1-2-8"
+         x="94.36528"
+         y="80.031242"
+         style="text-align:center;text-anchor:middle;stroke-width:0.21915166">MouseMoved</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.78561425px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.20280075"
+       x="41.562149"
+       y="132.98865"
+       id="text946"><tspan
+         sodipodi:role="line"
+         x="42.604671"
+         y="132.98865"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan948">В очередь событий </tspan><tspan
+         sodipodi:role="line"
+         x="41.562149"
+         y="137.72067"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan982">кладутся</tspan><tspan
+         sodipodi:role="line"
+         x="41.562149"
+         y="142.45268"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan950">новые события</tspan><tspan
+         sodipodi:role="line"
+         x="41.562149"
+         y="147.18471"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan952" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.78561425px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.20280075"
+       x="33.935123"
+       y="87.88485"
+       id="text946-4"><tspan
+         sodipodi:role="line"
+         x="33.935123"
+         y="87.88485"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan950-0">Пользователь создаёт</tspan><tspan
+         sodipodi:role="line"
+         x="33.935123"
+         y="92.616867"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan986">события, взаимодействуя</tspan><tspan
+         sodipodi:role="line"
+         x="33.935123"
+         y="97.348885"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan1011"> с программой</tspan><tspan
+         sodipodi:role="line"
+         x="33.935123"
+         y="102.0809"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan952-5" /></text>
+    <rect
+       style="opacity:1;fill:#d5ffd5;fill-opacity:0.19607843;stroke:#000000;stroke-width:0.25477394;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect990"
+       width="54.031914"
+       height="17.093204"
+       x="7.5562382"
+       y="83.140442"
+       ry="0.01287329" />
+    <rect
+       style="opacity:1;fill:#d5ffd5;fill-opacity:0.19607843;stroke:#000000;stroke-width:0.24597394;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect990-3"
+       width="40.705006"
+       height="21.149223"
+       x="21.13714"
+       y="126.18031"
+       ry="0.015927969" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.78561425px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.20280075"
+       x="161.02124"
+       y="72.856827"
+       id="text946-4-0"><tspan
+         sodipodi:role="line"
+         x="162.06377"
+         y="72.856827"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan1011-8">События извлекаются из очереди </tspan><tspan
+         sodipodi:role="line"
+         x="162.06377"
+         y="77.588844"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan1048">в начале каждого кадра </tspan><tspan
+         sodipodi:role="line"
+         x="161.02124"
+         y="82.320862"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan1050">с помощью метода pollEvent</tspan><tspan
+         sodipodi:role="line"
+         x="161.02124"
+         y="87.052879"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan952-5-7" /></text>
+    <rect
+       style="opacity:1;fill:#d5ffd5;fill-opacity:0.19607843;stroke:#000000;stroke-width:0.32930961;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect990-0"
+       width="71.718781"
+       height="21.514921"
+       x="126.13595"
+       y="66.1147"
+       ry="0.016203387" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.09083128px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.21915166"
+       x="87.817696"
+       y="70.920158"
+       id="text819-8-7-4-9-2-8"><tspan
+         sodipodi:role="line"
+         id="tspan817-4-1-1-2-8-2"
+         x="87.817696"
+         y="70.920158"
+         style="text-align:center;text-anchor:middle;stroke-width:0.21915166">Очередь событий</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.78561425px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.20280075"
+       x="164.62688"
+       y="114.70136"
+       id="text946-4-0-5"><tspan
+         sodipodi:role="line"
+         x="165.6694"
+         y="114.70136"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan1050-9">Обрабатываем каждое событие </tspan><tspan
+         sodipodi:role="line"
+         x="164.62688"
+         y="119.43338"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan1105">в цикле обработки событий</tspan><tspan
+         sodipodi:role="line"
+         x="164.62688"
+         y="124.1654"
+         style="text-align:center;text-anchor:middle;stroke-width:0.20280075"
+         id="tspan952-5-7-1" /></text>
+    <rect
+       style="opacity:1;fill:#d5ffd5;fill-opacity:0.19607843;stroke:#000000;stroke-width:0.27859297;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect990-0-8"
+       width="63.24382"
+       height="17.461683"
+       x="133.42636"
+       y="107.22227"
+       ry="0.013150798" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.97486657;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutM)"
+       d="m 31.633371,101.27827 c -2.434377,8.53117 -0.941295,15.27391 4.881847,22.20089"
+       id="path1107"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.97486657;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutM-4)"
+       d="m 55.931504,148.1912 c 8.728496,7.68629 30.224048,3.64773 33.480948,-8.7285"
+       id="path1107-1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.97486657;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutM-4-2)"
+       d="m 108.25892,70.388129 c 6.64408,-21.365275 47.68104,-17.9781 50.54712,-7.946841"
+       id="path1107-1-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.97486657;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutM-4-2-9)"
+       d="m 165.0657,88.488244 c 3.38717,5.992695 4.10177,9.681291 -0.39627,15.785756"
+       id="path1107-1-6-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.17)
+project(LinkedListTesting)
+include(CTest)
+enable_testing()
+
+
+find_package(GTest REQUIRED)
+find_package(GMock REQUIRED)
+
+
+add_executable(myTest myTest.cpp)
+#target_link_libraries(myTest PRIVATE GTest::gtest GTest::gtest_main GTest::gmock)
+target_link_libraries(myTest PRIVATE GTest::GTest GTest::GMock GTest::gtest_main)
+
+add_test(NAME t1 COMMAND myTest)

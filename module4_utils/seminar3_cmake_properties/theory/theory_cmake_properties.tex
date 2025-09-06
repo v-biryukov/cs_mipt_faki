@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage[english,russian]{babel}
+\usepackage{textcomp}
+\usepackage{geometry}
+  \geometry{left=2cm}
+  \geometry{right=1.5cm}
+  \geometry{top=1.5cm}
+  \geometry{bottom=2cm}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{listings}
+\pagenumbering{gobble}
+
+\lstdefinestyle{csMiptCppStyle}{
+  language=C++,
+  basicstyle=\linespread{1.1}\ttfamily,
+  columns=fixed,
+  fontadjust=true,
+  basewidth=0.5em,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray},
+  texcl=true,
+  stringstyle=\ttfamily\color{orange!50!black},
+  showstringspaces=false,
+  numbersep=5pt,
+  numberstyle=\tiny\color{black},
+  numberfirstline=true,
+  stepnumber=1,      
+  numbersep=10pt,
+  backgroundcolor=\color{white},
+  showstringspaces=false,
+  captionpos=b,
+  breaklines=true
+  breakatwhitespace=true,
+  xleftmargin=.2in,
+  extendedchars=\true,
+  keepspaces = true,
+  tabsize=4,
+  upquote=true,
+}
+
+
+\lstdefinestyle{csMiptCppLinesStyle}{
+  style=csMiptCppStyle,
+  frame=lines,
+}
+
+\lstdefinestyle{csMiptCppBorderStyle}{
+  style=csMiptCppStyle,
+  framexleftmargin=5mm, 
+  frame=shadowbox, 
+  rulesepcolor=\color{gray}
+}
+
+
+\lstdefinestyle{csMiptBash}{
+breaklines=true,
+frame=tb,
+language=bash,
+breakatwhitespace=true,
+alsoletter={*()"'0123456789.},
+alsoother={\{\=\}},
+basicstyle={\ttfamily},
+keywordstyle={\bfseries},
+literate={{=}{{{=}}}1},
+prebreak={\textbackslash},
+sensitive=true,
+stepnumber=1,
+tabsize=4,
+morekeywords={echo, function},
+otherkeywords={-, \{, \}},
+literate={\$\{}{{{{\bfseries{}\$\{}}}}2,
+upquote=true,
+frame=none
+}
+
+
+
+
+\lstset{style=csMiptCppLinesStyle}
+\lstset{literate={~}{{\raisebox{0.5ex}{\texttildelow}}}{1}}
+
+
+\renewcommand{\thesection}{\arabic{section}}
+\makeatletter
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+   {\csname the#1\endcsname\quad}%    default
+   {\csname #1@cntformat\endcsname}}% enable individual control
+\newcommand\section@cntformat{Часть \thesection:\space}
+\makeatother
+
+
+
+
+\begin{document}
+\title{Семинар \#3: CMake \\[1ex] \large Переменные. Свойства. Конфигурации. Генераторные выражения. \vspace{-5ex}}
+\date{}\maketitle
+
+\noindent Несколько исполняемых файлов в проекте.\\
+\texttt{cmake\_minimum\_required} - policy\\
+\texttt{target\_sources}\\
+Многострочные строки. [==[  ]==].\\
+if no scope.\\
+if defined, if exists, if matches\\
+math.\\
+\texttt{cmake\_parse\_arguments}\\
+модули include\\
+области видимости в модулях и поддиректориях.
+\section{Переменные}
+
+\subsection*{Переменные среды}
+
+\subsection*{Кешированные переменные}
+
+\subsection*{Стандартные переменные CMake}
+
+
+\section{Поддиректории и модули}
+
+\section{Свойства}
+
+\section{Типы сборки (конфигурации)}
+\subsection*{5 типов типов сборки по умолчанию}
+\subsection*{Одноконфигурационные и многоконфигурационные генераторы}
+
+\subsection*{Выбор типа сборки для одноконфигурационного генератора}
+Кэшированная переменная \texttt{CMAKE\_BUILD\_TYPE}.\\
+Кэшированные переменные и свойства, соответствующие конфигурациям.\\
+
+
+\subsection*{Выбор типа сборки для многоконфигурационного генератора}
+Глобальное свойство \texttt{GENERATOR\_IS\_MULTI\_CONFIG}\\
+Кэшированная переменная \texttt{CMAKE\_CONFIGURATION\_TYPES}.\\
+Опция программы cmake \texttt{--config}.\\
+
+
+\subsection*{Создание своего типа сборки}
+\begin{itemize}
+\item \texttt{CMAKE\_C\_FLAGS\_<CONFIG>}
+\item \texttt{CMAKE\_CXX\_FLAGS\_<CONFIG>}
+\item \texttt{CMAKE\_EXE\_LINKER\_FLAGS\_<CONFIG>}
+\item \texttt{CMAKE\_SHARED\_LINKER\_FLAGS\_<CONFIG>}
+\item \texttt{CMAKE\_STATIC\_LINKER\_FLAGS\_<CONFIG>}
+\item \texttt{CMAKE\_MODULE\_LINKER\_FLAGS\_<CONFIG>}
+\item \texttt{CMAKE\_<CONFIG>\_POSTFIX}
+\end{itemize}
+
+
+
+\section{Выполнение на этапе компиляции}
+
+\section{Генераторные выражения}
+
+\end{document}

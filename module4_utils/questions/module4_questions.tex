@@ -1,0 +1,548 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath} 
+\usepackage{amsfonts}
+\usepackage{upgreek}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{geometry}
+  \geometry{left=2cm}
+  \geometry{right=1.5cm}
+  \geometry{top=1cm}
+  \geometry{bottom=2cm}
+\usepackage{tikz}
+\usepackage{ccaption}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\setlength{\multicolsep}{6pt}    % отступы сверху и снизу
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{listings}
+\lstset{
+  language=C,                % choose the language of the code
+  basicstyle=\linespread{1.1}\ttfamily,
+  columns=fixed,
+  fontadjust=true,
+  basewidth=0.5em,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\ttfamily\color{orange!50!black},
+  showstringspaces=false,
+  %numbers=false,                   % where to put the line-numbers
+  numbersep=5pt,
+  numberstyle=\tiny\color{black},
+  numberfirstline=true,
+  stepnumber=1,                   % the step between two line-numbers.        
+  numbersep=10pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showstringspaces=false,         % underline spaces within strings
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+  xleftmargin=.2in,
+  extendedchars=\true,
+  keepspaces = true,
+}
+\lstset{literate=%
+   *{0}{{{\color{red!20!violet}0}}}1
+    {1}{{{\color{red!20!violet}1}}}1
+    {2}{{{\color{red!20!violet}2}}}1
+    {3}{{{\color{red!20!violet}3}}}1
+    {4}{{{\color{red!20!violet}4}}}1
+    {5}{{{\color{red!20!violet}5}}}1
+    {6}{{{\color{red!20!violet}6}}}1
+    {7}{{{\color{red!20!violet}7}}}1
+    {8}{{{\color{red!20!violet}8}}}1
+    {9}{{{\color{red!20!violet}9}}}1
+}
+
+
+\begin{document}
+\pagenumbering{gobble}
+
+\section*{Модуль 4. Вопросы.}
+\begin{enumerate}
+
+\item \textbf{Компиляция и линковка}
+\begin{enumerate}[a.]
+
+\item \textbf{Этапы компиляции}\\
+Что такое файл исходного кода и исполняемый файл? Этапы компиляции: препроцессинг, компиляция, ассемблирование, линковка. Что происходит на каждом из этапе компиляции? Как выполнить только часть этапов компиляции?
+
+\item \textbf{Раздельная компиляция}\\
+В чем преимущества разделения программы на несколько файлов? В чём преимущества и недостатки раздельной компиляции? Как разделить программу на файлы так, чтобы происходила раздельная компиляция? Как программа компилируется при раздельной компиляции?
+ 
+\item \textbf{Заголовочные файлы}\\
+Что такое заголовочные файлы (header-файлы)? Что обычно хранится в заголовочных файлах? Что делает директива препроцессора \texttt{\#include}? Проблема множественного включения. Стражи включения и директива \texttt{\#pragma once}.
+
+\item \textbf{Имена}\\
+Что такое единица трансляции?  Понятия объявления (англ. \textit{declaration}) и определения (англ. \textit{definition}) сущностей. Объявление функций. Определение функций. Объявление глобальный переменных. Определение глобальных переменных. Объявление и определение структур. Понятие \textit{имя} в контексте линковки на языке C. Понятие \textit{символ} в контексте линковки на языке C. Внутреннее связывание, внешнее связывания и отсутствие связывания. Ключевые слова \texttt{static} и \texttt{extern}. Ключевое слово \texttt{inline}. Использования утилит \texttt{nm} и \texttt{objdump} для просмотра имён в скомпилированных файлах.
+
+\item \textbf{Опции компиляции}
+\begin{itemize}
+\item Опция для задания названия выходного файла.
+\item Опции для выполнения только первых этапов компиляции
+\item Опции для выбора стандарта языка
+\item Опции для работы с предупреждениями (\texttt{-Wall}, \texttt{-Wextra}, \texttt{-Werror})
+\item Опции для оптимизации кода
+\item Опция для включения информации для дебаггера
+\item Опция для определения макросов (определений компиляции)
+\item Опция \texttt{-DNDEBUG}
+\item Опции для подключения библиотек
+\end{itemize}
+
+\item \textbf{Библиотеки}\\
+Что такое библиотека? Виды библиотек: header-only библиотеки, статические библиотеки, динамические библиотеки. В чём различия между этими видами библиотек? В чём преимущества и недостатки каждого из видов библиотек?
+
+\item \textbf{Статические библиотеки}\\
+Как создать статическую библиотеку? Утилита \texttt{ar}. Как подключить статическую библиотеку, с помощью компилятора \texttt{gcc}? Опции компилятора \texttt{-I}, \texttt{-L} и \texttt{-l}. Характерные расширения файлов статических библиотек на Linux (gcc) и Windows (MinGW и MSVC). 
+
+\item \textbf{Динамические библиотеки}\\
+В чём главная разница между статическими и динамическими библиотеками? Как создать динамическую библиотеку? Что делает опция \texttt{-fPIC}? Характерные расширения файлов динамических библиотек на Linux (gcc) и Windows (MinGW и MSVC). Подключение динамической библиотеки при запуске программы. Опции компилятора \texttt{-I}, \texttt{-L} и \texttt{-l}. Подключение динамической библиотеки во время выполнения программы. Библиотека \texttt{dlfcn.h}. Функции \texttt{dlopen}, \texttt{dlsym} и \texttt{dlclose}.
+
+
+\item \textbf{Особенности компиляции и линковки на языке С++ по сравнению с языком C}
+\begin{itemize}
+\item Раздельная компиляция при наличии в коде классов и шаблонов.
+\item Манглирования имён. \texttt{extern "C"}.
+\item ODR. Использования ключевого слова \texttt{inline} для обхода ODR.
+\item Инициализация статических полей класса.
+\end{itemize}
+
+\end{enumerate}
+
+
+\newpage
+\item \textbf{Основы CMake}
+\begin{enumerate}[a.]
+\item \textbf{Системы сборки}\\
+Задачи, которые решают системы сборки. Примеры систем сборки. Генераторы систем сборки.
+Преимущества генераторов систем сборки по сравнению с обычными системами сборки. Примеры генераторов систем сборки. Как задать генератор в CMake? Опция \texttt{-G} программы \texttt{cmake}.
+
+\item \textbf{Простейшие проекты на CMake}\\
+Файл \texttt{CMakeLists.txt}. Команды:
+\begin{itemize}
+\item \texttt{cmake\_minimum\_required}
+\item \texttt{project}
+\item \texttt{add\_executable}
+\end{itemize}
+Создание и подключение библиотек в CMake. Команды:
+\begin{itemize}
+\item \texttt{add\_library}
+\item \texttt{target\_link\_libraries}
+\end{itemize}
+
+
+\item \textbf{Таргеты}\\
+Понятие \textit{таргет} в CMake. 
+Подключение файлов к таргетам с помощью команды:
+\begin{itemize}
+\item \texttt{target\_sources}
+\end{itemize}
+
+Подключение опций к таргетам с помощью команд:
+\begin{itemize}
+\item \texttt{target\_include\_directories}
+\item \texttt{target\_link\_directories}
+\item \texttt{target\_link\_libraries} (не путать с другой командой с таким же названием)
+\item \texttt{target\_compile\_definitions}
+\item \texttt{target\_compile\_features}
+\item \texttt{target\_compile\_options}
+\item \texttt{target\_link\_options}
+\end{itemize}
+
+Использование ключевых слов \texttt{PUBLIC}, \texttt{PRIVATE} и \texttt{INTERFACE} при подключении опций к таргетам и при подключении таргетов друг к другу.
+
+\item \textbf{Переменные CMake}\\
+Язык CMake. Создание переменных в CMake. Команда \texttt{set}. Какого типа может быть переменная в CMake? Использование переменных. Переменные-строки. Команда \texttt{string} и её опции:
+\noindent \begin{multicols}{3}
+\begin{itemize}
+\item \texttt{FIND}
+\item \texttt{REPLACE}
+\item \texttt{APPEND}
+\item \texttt{JOIN}
+\item \texttt{TOLOWER}
+\item \texttt{TOUPPER}
+\item \texttt{LENGTH}
+\item \texttt{SUBSTRING}
+\item \texttt{COMPARE}
+\end{itemize}
+\end{multicols}
+\noindent Переменные-списки. Команда \texttt{list} и её опции:
+\noindent \begin{multicols}{3}
+\begin{itemize}
+\item \texttt{LENGTH}
+\item \texttt{GET}
+\item \texttt{JOIN}
+\item \texttt{FIND}
+\item \texttt{APPEND}
+\item \texttt{INSERT}
+\item \texttt{REMOVE\_ITEM}
+\item \texttt{REMOVE\_AT}
+\item \texttt{SORT}
+\end{itemize}
+\end{multicols}
+
+\item \textbf{Команда \texttt{if} и циклы}\\
+Как работает команда \texttt{if}. Какие строки считаются истинными, а какие -- ложными?
+Цикл \texttt{while}. Цикл \texttt{foreach}. Разновидности цикла \texttt{foreach}: \texttt{RANGE}, \texttt{IN ITEMS} и \texttt{IN LISTS}.
+
+\item \textbf{Функции CMake}\\
+Сколько аргументов могут принимать функции в CMake? Команда \texttt{function} для создания функций. Передача аргументов в функции. Переменные \texttt{ARGC}, \texttt{ARGV} и \texttt{ARGN}. Возврат из функций. \texttt{PARENT\_SCOPE}.
+
+\item \textbf{Работа с файлами в CMake. Команда \texttt{file} и её опции.}
+\begin{multicols}{3}
+\begin{itemize}
+\item \texttt{READ}
+\item \texttt{STRINGS}
+\item \texttt{WRITE}
+\item \texttt{APPEND}
+\item \texttt{GLOB}
+\item \texttt{MAKE\_DIRECTORY}
+\item \texttt{COPY\_FILE}
+\item \texttt{SIZE}
+\item \texttt{DOWNLOAD}
+
+\end{itemize}
+\end{multicols}
+
+\end{enumerate}
+
+
+
+
+
+\newpage
+\item \textbf{CMake: структура проекта, кэшированные переменные, конфиги, генераторные выражения}
+\begin{enumerate}[a.]
+\item \textbf{Разделение кода CMake на несколько директорий}\\
+Поддиректории в CMake. Команда \texttt{add\_subdirectory}. 
+Область видимости переменных, объявленных в поддиректории и вне поддиректории. Опция \texttt{PARENT\_SCOPE} команды \texttt{set}. Переменные:
+\begin{itemize}
+\item \texttt{CMAKE\_SOURCE\_DIR}.
+\item \texttt{CMAKE\_BINARY\_DIR}.
+\item \texttt{CMAKE\_CURRENT\_SOURCE\_DIR}
+\item \texttt{CMAKE\_CURRENT\_BINARY\_DIR}
+\end{itemize}
+
+\item \textbf{Модули}\\
+Модули CMake. Скриптовый режим. \texttt{cmake -P}. Подключение модуля. Команда \texttt{include}. Переменные:
+\begin{itemize}
+\item \texttt{CMAKE\_MODULE\_PATH}.
+\item \texttt{CMAKE\_CURRENT\_LIST\_DIR}
+\item \texttt{CMAKE\_CURRENT\_LIST\_FILE}
+\end{itemize}
+Область видимости переменных, объявленных в модуле и вне модуля.
+
+
+\item \textbf{Кэшированные переменные}\\
+Что такое кэшированная переменная CMake и чем она отличается от обычной? Зачем нужны кэшированные переменные? Создание кэшированных переменных с помощью команды \texttt{set}. Создание кэшированных переменных с помощью команды \texttt{option}. Как изменить уже созданную кэшированную переменную? Опция \texttt{FORCE} команды \texttt{set}. Файл \texttt{CMakeCache.txt}. Опция \texttt{-D} программы \texttt{cmake}. Программы \texttt{ccmake} и \texttt{cmake-gui}. "Тип"{} кэшированной переменной и как он используется? Совпаденение имени обычной и кэшированной переменной.
+
+
+\item \textbf{Предопределённые переменные}\\
+Переменные, хранящие информацию о проекте:
+\begin{itemize}
+\item \texttt{PROJECT\_NAME}
+\item \texttt{PROJECT\_SOURCE\_DIR}
+\item \texttt{PROJECT\_BINARY\_DIR}
+\item \texttt{PROJECT\_IS\_TOP\_LEVEL}
+\end{itemize}
+
+Переменные, задающие глобальные опции компиляции:
+\begin{itemize}
+\item \texttt{CMAKE\_C\_FLAGS}
+\item \texttt{CMAKE\_CXX\_FLAGS}
+\item \texttt{CMAKE\_EXE\_LINKER\_FLAGS}
+\end{itemize}
+
+Переменные, предоставляющие информацию о платформе:
+\begin{multicols}{2}
+\begin{itemize}
+\item \texttt{CMAKE\_C\_COMPILER}
+\item \texttt{CMAKE\_CXX\_COMPILER}
+\item \texttt{CMAKE\_GENERATOR}
+\item \texttt{CMAKE\_SYSTEM\_NAME}
+\item \texttt{UNIX}
+\item \texttt{APPLE}
+\item \texttt{WIN32}
+\item \texttt{MSVC}
+\end{itemize}
+\end{multicols}
+Информация о самой программе \texttt{cmake}:
+\begin{itemize}
+\item \texttt{CMAKE\_ROOT}
+\item \texttt{CMAKE\_VERSION}
+\end{itemize}
+
+\item \textbf{Свойства}\\
+Что такое свойства в CMake? Чем свойства отличаются от переменных? Команды \texttt{get\_property} и \texttt{set\_property}. Глобальные свойства. Свойства директорий:
+\begin{multicols}{2}
+\begin{itemize}
+\item \texttt{VARIABLES}
+\item \texttt{CACHE\_VARIABLES}
+\item \texttt{SUBDIRECTORIES}
+\item \texttt{BUILDSYSTEM\_TARGETS}
+\item \texttt{IMPORTED\_TARGETS}
+\item \texttt{TESTS}
+\item \texttt{PARENT\_DIRECTORY}
+\end{itemize}
+\end{multicols}
+
+\newpage
+Свойства таргетов:
+\begin{multicols}{2}
+\begin{itemize}
+\item \texttt{INCLUDE\_DIRECTORIES}
+\item \texttt{COMPILE\_DEFINITIONS}
+\item \texttt{COMPILE\_FEATURES}
+\item \texttt{COMPILE\_OPTIONS}
+\item \texttt{LINK\_DIRECTORIES}
+\item \texttt{LINK\_LIBRARIES}
+\item \texttt{LINK\_OPTIONS}
+\item \texttt{INTERFACE\_INCLUDE\_DIRECTORIES}
+\item \texttt{INTERFACE\_COMPILE\_DEFINITIONS}
+\item \texttt{INTERFACE\_COMPILE\_FEATURES}
+\item \texttt{INTERFACE\_COMPILE\_OPTIONS}
+\item \texttt{INTERFACE\_LINK\_DIRECTORIES}
+\item \texttt{INTERFACE\_LINK\_LIBRARIES}
+\item \texttt{INTERFACE\_LINK\_OPTIONS}
+\item \texttt{SOURCES}
+\item \texttt{TYPE}
+\item \texttt{IMPORTED}
+\item \texttt{OUTPUT\_NAME}
+\item \texttt{OUTPUT\_NAME\_<CONFIG>}
+\item \texttt{ARCHIVE\_OUTPUT\_DIRECTORY}
+\item \texttt{ARCHIVE\_OUTPUT\_DIRECTORY\_<CONFIG>}
+\item \texttt{LIBRARY\_OUTPUT\_DIRECTORY}
+\item \texttt{LIBRARY\_OUTPUT\_DIRECTORY\_<CONFIG>}
+\item \texttt{RUNTIME\_OUTPUT\_DIRECTORY}
+\item \texttt{RUNTIME\_OUTPUT\_DIRECTORY\_<CONFIG>}
+\item \texttt{C\_STANDARD}
+\item \texttt{CXX\_STANDARD}
+\end{itemize}
+\end{multicols}
+Свойства файлов исходного кода. Свойства тестов.
+
+\item \textbf{Типы сборки}\\
+Основные типы сборки:
+\begin{itemize}
+\item (Пустой тип сборки)
+\item \texttt{Release}
+\item \texttt{Debug}
+\item \texttt{RelWithDebInfo}
+\item \texttt{MinSizeRel}
+\end{itemize}
+Как тип сборки влияет на опции компиляции? 
+Одноконфигурационные и мультиконфигурационные генераторы. Как задать тип сборки в случае одноконфигурационного генератора и в случае мультиконфигурационного генератора? Переменные:
+\begin{itemize}
+\item \texttt{CMAKE\_BUILD\_TYPE}
+\item \texttt{CMAKE\_CONFIGURATION\_TYPES}
+\end{itemize}
+Глобальное свойство:
+\begin{itemize}
+\item \texttt{GENERATOR\_IS\_MULTI\_CONFIG}
+\end{itemize}
+Как написать код, который бы работал для одноконфигурационных и мультиконфигурационных генераторов.
+Создание пользовательского типа сборки. Кэшированные переменные:
+\begin{itemize}
+\item \texttt{CMAKE\_CXX\_FLAGS\_<CONFIG>}
+\item \texttt{CMAKE\_C\_FLAGS\_<CONFIG>}
+\item \texttt{CMAKE\_EXE\_LINKER\_FLAGS\_<CONFIG>}
+\end{itemize}
+\item \textbf{Генераторные выражения}\\
+Этапы сборки CMake-проекта:
+\begin{enumerate}
+\item Этап конфигурации
+\item Этап генерации
+\item Этап сборки
+\end{enumerate}
+
+Генераторные выражения. Привести пример применения генераторного выражения. Какие команды CMake поддерживают генераторные выражения? Основные виды генераторных выражений:
+\begin{itemize}
+\item \texttt{\$<условие:значение>}
+\item \texttt{\$<BOOL:значение>}
+\item Логические операции \texttt{OR}, \texttt{AND},  \texttt{NOT}.
+\item \texttt{\$<CONFIG:тип\_сборки>}
+\item \texttt{\$<PLATFORM\_ID:имя\_платформы>}
+\item \texttt{\$<TARGET\_FILE:таргет>}
+\end{itemize}
+
+
+\end{enumerate}
+
+
+
+
+
+\newpage
+\item \textbf{CMake: подключение сторонних библиотек}
+\begin{enumerate}[a.]
+\item \textbf{Ручное подключение сторонней библиотеки}\\
+Как подключить библиотеку, если есть только файлы самой библиотеки без скриптов сборки?
+Преимущества и недостатки этого метода подключения сторонних библиотек.
+
+\item \textbf{Подключение с помощью \texttt{add\_subdirectory}}\\
+Как подключить другой CMake-проект с помощью \texttt{add\_subdirectory}?
+Преимущества и недостатки этого метода подключения сторонних библиотек.
+
+\item \textbf{\texttt{find\_package}}\\
+Команда \texttt{find\_file}. Алгоритм поиска файла в системе при использовании \texttt{find\_file}. Переменные:
+\begin{itemize}
+\item \texttt{<ИмяПакета>\_ROOT}
+\item \texttt{CMAKE\_PREFIX\_PATH}
+\item \texttt{CMAKE\_INCLUDE\_PATH}
+\item \texttt{CMAKE\_FRAMEWORK\_PATH}
+\item \texttt{CMAKE\_SYSTEM\_PREFIX\_PATH}
+\end{itemize}
+Опции \texttt{HINTS} и \texttt{PATHS}. Команды \texttt{find\_library} и \texttt{find\_program}.\\
+Команда \texttt{find\_package} и её опции:
+\begin{itemize}
+\item \texttt{REQUIRED}
+\item \texttt{COMPONENTS}
+\end{itemize}
+Два режима работы команды \texttt{find\_package}:
+\begin{enumerate}
+\item Режим поиска модуля:\\
+Какой файл ищет CMake в этом режиме? Алгоритм поиска файла. Переменная \texttt{CMAKE\_MODULE\_PATH}.
+\item Режим поиска конфигурационного файла:\\
+Какой файл ищет CMake в этом режиме? Алгоритм поиска файла. Переменные:
+\begin{itemize}
+\item \texttt{<ИмяПакета>\_ROOT}
+\item \texttt{CMAKE\_PREFIX\_PATH}
+\item \texttt{CMAKE\_FRAMEWORK\_PATH}
+\item \texttt{CMAKE\_APPBUNDLE\_PATH}
+\end{itemize}
+\end{enumerate}
+
+Переменные, создаваемые командой \texttt{find\_package}:
+\begin{itemize}
+\item \texttt{<ИмяПакета>\_FOUND}
+\item \texttt{<ИмяПакета>\_LIBRARIES}
+\end{itemize}
+Импортированные таргеты, создаваемые командой \texttt{find\_package}.\\
+Преимущества и недостатки \texttt{find\_package} для подключения сторонних библиотек.
+
+
+\item \textbf{\texttt{ExternalProject}}\\
+Команда \texttt{ExternalProject\_Add} и её опции:
+\begin{itemize}
+\item \texttt{GIT\_REPOSITORY} 
+\item \texttt{GIT\_TAG}
+\item \texttt{DOWNLOAD\_COMMAND}
+\item \texttt{BUILD\_COMMAND}
+\item \texttt{INSTALL\_COMMAND}
+\end{itemize}
+Преимущества и недостатки этого метода подключения сторонних библиотек.
+
+\item \textbf{\texttt{FetchContent}}\\
+Команда \texttt{FetchContent\_Declare} и её опции:
+\begin{itemize}
+\item \texttt{GIT\_REPOSITORY} 
+\item \texttt{GIT\_TAG}
+\end{itemize}
+Команда \texttt{FetchContent\_MakeAvailable}.
+Чем \texttt{FetchContent} отличается от \texttt{ExternalProject}?
+Преимущества и недостатки этого метода подключения сторонних библиотек.
+
+\item \textbf{Пакетный менеджер \texttt{conan}}\\
+Пакетные менеджеры для библиотеки на языках C и C++. Использование пакетного менеджера \texttt{conan} совместно с \texttt{find\_package}. Преимущества и недостатки этого метода подключения сторонних библиотек.
+
+\end{enumerate}
+
+
+
+
+\item \textbf{Тестирование}
+\begin{enumerate}[a.]
+\item \textbf{Основы тестирования}\\
+Что такое тесты? Написание тестов без использования сторонних библиотек. Юнит-тестирование.
+
+
+\item \textbf{CTest}\\
+Команда \texttt{enable\_testing}. Команда \texttt{add\_test} и её опции \texttt{NAME}, \texttt{COMMAND} и \texttt{WORKING\_DIRECTORY}. Свойства тестов:
+\begin{itemize}
+\item \texttt{TIMEOUT}
+\item \texttt{WILL\_FAIL}
+\item \texttt{FAIL\_REGULAR\_EXPRESSION}
+\item \texttt{PASS\_REGULAR\_EXPRESSION}
+\item \texttt{LABELS}
+\item \texttt{COST}
+\end{itemize}
+
+Программа \texttt{ctest}. Опции команды \texttt{ctest}: 
+\begin{itemize}
+\item Опция \texttt{-N}
+\item Опции \texttt{-R} и \texttt{-E}
+\item Опция \texttt{-j}
+\item Опция \texttt{--repeat-until-fail}
+\item Опция \texttt{--timeout}
+\end{itemize}
+
+\item \textbf{Подключение GoogleTest}\\
+Подключение библиотеки \texttt{Google Test} с помощью CMake.
+Таргеты \texttt{gtest} и \texttt{gtest\_main}.
+
+\item \textbf{GoogleTest}\\
+Создание простых тестов. Макрос \texttt{TEST}. Наборы тестов.
+\texttt{EXPECT\_} и \texttt{ASSERT\_} проверки. В чём отличие между ними?
+Проверки:
+\begin{itemize}
+\item \texttt{EXPECT\_TRUE}, \texttt{EXPECT\_FALSE}
+\item \texttt{EXPECT\_EQ}, \texttt{EXPECT\_LE} и т. д.
+\item \texttt{EXPECT\_STREQ}
+\item \texttt{EXPECT\_FLOAT\_EQ}, \texttt{EXPECT\_NEAR}
+\item \texttt{EXPECT\_THROW}, \texttt{EXPECT\_ANY\_THROW}, \texttt{EXPECT\_NO\_THROW}
+\item \texttt{EXPECT\_DEATH}, \texttt{EXPECT\_EXIT}
+\end{itemize}
+Фикстуры (англ. \textit{fixtures}). Макрос \texttt{TEST\_F}. Отключение тестов с помощью \texttt{DISABLED\_}.
+
+\item \textbf{GoogleMock}\\
+Мок-объекты. Создание мок-классов. Макрос \texttt{MOCK\_METHOD}. Задание ожиданий. Макрос \texttt{EXPECT\_CALL}. Методы \texttt{Times}, \texttt{WillOnce} и \texttt{WillRepeatedly}.
+Кардинальности:
+\begin{itemize}
+\item \texttt{testing::AnyNumber}
+\item \texttt{testing::AtLeast}
+\item \texttt{testing::AtMost}
+\item \texttt{testing::Between}
+\item \texttt{testing::Exactly}
+\end{itemize}
+
+Матчеры:
+\begin{multicols}{2}
+\begin{itemize}
+\item \texttt{testing::\_}
+\item \texttt{testing::Any<T>}
+\item \texttt{testing::Eq}, \texttt{testing::Gt}, и т. д.
+\item \texttt{testing::Contains}
+\item \texttt{testing::Truly}
+\item \texttt{testing::AllOf}
+\item \texttt{testing::AnyOf}
+\item \texttt{testing::ElementsAre}
+\end{itemize}
+\end{multicols}
+
+Действия:
+\begin{multicols}{2}
+\begin{itemize}
+\item \texttt{testing::Return}
+\item \texttt{testing::ReturnNew}
+\item \texttt{testing::SetArgReferee}
+\item \texttt{testing::Throw}
+\item \texttt{testing::Invoke}
+\item \texttt{testing::DoAll}
+\end{itemize}
+\end{multicols}
+
+\end{enumerate}
+
+
+
+
+\end{enumerate}
+
+
+\end{document}

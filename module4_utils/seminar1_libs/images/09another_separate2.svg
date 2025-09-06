@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="09another_separate2.svg"
+   inkscape:export-filename="C:\Users\vova\workspace\latex\cs_mipt_faki\module4_utils\seminar1_libs\images\09another_separate2.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="112.22007"
+     inkscape:cy="452.41861"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="2560"
+     inkscape:window-height="1358"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutL"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1437"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="DotM"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="DotM">
+      <path
+         transform="scale(0.4) translate(7.4, 1)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1;opacity:1"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         id="path1253" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="TriangleInM"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="TriangleInM">
+      <path
+         transform="scale(-0.4)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1;opacity:1"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         id="path1132" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="marker1420"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM">
+      <path
+         transform="scale(0.4)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1;opacity:1"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         id="path1141" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;;opacity:1"
+       id="marker1333"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send">
+      <path
+         transform="scale(0.2) rotate(180) translate(6,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1;opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path1011" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="Arrow2Mstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mstart">
+      <path
+         transform="scale(0.6) translate(0,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1;opacity:1"
+         id="path1020" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="marker1237"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM">
+      <path
+         transform="scale(0.4)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1;opacity:1"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         id="path1119" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="TriangleOutM"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM">
+      <path
+         transform="scale(0.4)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1;opacity:1"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         id="path1254" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="TriangleOutS"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="TriangleOutS">
+      <path
+         transform="scale(0.2)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1;opacity:1"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         id="path1257" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;;opacity:1"
+       id="Arrow1Send"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send">
+      <path
+         transform="scale(0.2) rotate(180) translate(6,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1;opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path1124" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;;opacity:1"
+       id="Arrow2Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend">
+      <path
+         transform="scale(1.1) rotate(180) translate(1,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1;opacity:1"
+         id="path1130" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="TriangleOutM-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM">
+      <path
+         transform="scale(0.4)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1;opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1254-0"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="TriangleOutM-4-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM">
+      <path
+         transform="scale(0.4)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1;opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1254-0-9"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="TriangleOutM-4-2-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM">
+      <path
+         transform="scale(0.4)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1;opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1254-0-9-4"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="marker1237-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM">
+      <path
+         transform="scale(0.4)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1;opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1119-1"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="DotM-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="DotM">
+      <path
+         transform="matrix(0.4,0,0,0.4,2.96,0.4)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1;opacity:1"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         id="path1253-5"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="TriangleOutM-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM">
+      <path
+         transform="scale(0.4)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1;opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1254-00"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="DotM-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="DotM">
+      <path
+         transform="matrix(0.4,0,0,0.4,2.96,0.4)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1;opacity:1"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         id="path1253-2"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;opacity:1"
+       id="TriangleOutM-00"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutM">
+      <path
+         transform="scale(0.4)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1;opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1254-7"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1067">
+      <rect
+         ry="0.015282094"
+         y="42.713757"
+         x="31.625332"
+         height="57.95607"
+         width="59.399189"
+         id="rect1069"
+         style="display:inline;opacity:1;fill:#d5f6ff;fill-opacity:0.17753625;stroke:#000006;stroke-width:0.3274188" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1071">
+      <rect
+         ry="0.015282094"
+         y="42.713757"
+         x="31.625332"
+         height="57.95607"
+         width="59.399189"
+         id="rect1073"
+         style="display:inline;opacity:1;fill:#d5f6ff;fill-opacity:0.17753625;stroke:#000006;stroke-width:0.3274188" />
+    </clipPath>
+  </defs>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     style="display:inline;opacity:1"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <circle
+       r="0"
+       style="opacity:1;fill:#ff5c9c;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="circle1430"
+       cx="161.52617"
+       cy="105.25397"
+       clip-path="url(#clipPath1071)" />
+    <rect
+       style="display:inline;opacity:1;fill:#80e5ff;fill-opacity:0.04705882;stroke:#000600;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1075-5"
+       width="94.509758"
+       height="47.215649"
+       x="10.509776"
+       y="112.35493"
+       ry="0.012510744" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.45835066px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;stroke-width:0.19546863"
+       x="11.170992"
+       y="110.06884"
+       id="text1079-6"
+       transform="scale(1.0000292,0.9999708)"><tspan
+         sodipodi:role="line"
+         id="tspan1077-9"
+         x="11.170992"
+         y="110.06884"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863">main.c</tspan><tspan
+         sodipodi:role="line"
+         x="11.170992"
+         y="110.06884"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1081-8" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.45835066px;line-height:1;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;stroke-width:0.19546863"
+       x="14.058176"
+       y="118.80166"
+       id="text1076-8"
+       transform="scale(1.0000292,0.9999708)"><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="118.80166"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1138-2"><tspan
+   style="fill:#2ca089"
+   id="tspan1530">#include</tspan> <tspan
+   style="fill:#c8a000"
+   id="tspan1536">&lt;stdio.h&gt;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="122.39883"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1510"><tspan
+   style="fill:#2ca089"
+   id="tspan1532">#include</tspan> <tspan
+   style="fill:#c8a000"
+   id="tspan1538">&quot;point.h&quot;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="125.99599"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1512"><tspan
+   style="fill:#2ca089"
+   id="tspan1534">#include</tspan> <tspan
+   style="fill:#c8a000"
+   id="tspan1540">&quot;area.h&quot;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="129.45436"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1514" /><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="133.05153"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1516"><tspan
+   style="fill:#0044aa"
+   id="tspan1298">int</tspan> main()</tspan><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="136.6487"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1518">{</tspan><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="140.24586"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1520">    <tspan
+   style="fill:#0044aa"
+   id="tspan1300">Point</tspan> a = {<tspan
+   style="fill:#008000"
+   id="tspan1318">0</tspan>, <tspan
+   style="fill:#008000"
+   id="tspan1316">0</tspan>};</tspan><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="143.84303"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1522">    <tspan
+   style="fill:#0044aa"
+   id="tspan1302">Point</tspan> b = {<tspan
+   style="fill:#008000"
+   id="tspan1314">10</tspan>, <tspan
+   style="fill:#008000"
+   id="tspan1312">20</tspan>};</tspan><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="147.44022"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1524">    <tspan
+   style="fill:#0044aa"
+   id="tspan1304">Point</tspan> c = {<tspan
+   style="fill:#008000"
+   id="tspan1308">20</tspan>, <tspan
+   style="fill:#008000"
+   id="tspan1310">5</tspan>};</tspan><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="151.03738"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1526">    printf(<tspan
+   style="fill:#c8a000"
+   id="tspan1306">&quot;%f\n&quot;</tspan>, triangle_area(a, b, c));</tspan><tspan
+         sodipodi:role="line"
+         x="14.058176"
+         y="154.63455"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546863"
+         id="tspan1528">}</tspan></text>
+    <rect
+       style="display:inline;opacity:1;fill:#80e5ff;fill-opacity:0.04705882;stroke:#000600;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1075-5-4"
+       width="85.785507"
+       height="33.95277"
+       x="111.43253"
+       y="150.57275"
+       ry="0.0089964764" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.45835066px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;stroke-width:0.19546865"
+       x="112.09077"
+       y="148.25987"
+       id="text1079-6-0"
+       transform="scale(1.0000292,0.9999708)"><tspan
+         sodipodi:role="line"
+         x="112.09077"
+         y="148.25987"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1272">point.с</tspan><tspan
+         sodipodi:role="line"
+         x="112.09077"
+         y="148.25987"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1081-8-8" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.45835066px;line-height:1;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;stroke-width:0.19546865"
+       x="114.97796"
+       y="155.43088"
+       id="text1076-8-6"
+       transform="scale(1.0000292,0.9999708)"><tspan
+         sodipodi:role="line"
+         x="114.97796"
+         y="155.43088"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1138-2-4"><tspan
+   style="fill:#2ca089"
+   id="tspan1276">#include</tspan> <tspan
+   style="fill:#c8a000"
+   id="tspan1282">&lt;math.h&gt;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="114.97796"
+         y="159.02805"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1384"><tspan
+   style="fill:#2ca089"
+   id="tspan1278">#include</tspan> <tspan
+   style="fill:#c8a000"
+   id="tspan1280">&quot;point.h&quot;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="114.97796"
+         y="162.4864"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1386" /><tspan
+         sodipodi:role="line"
+         x="114.97796"
+         y="166.08357"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1388"><tspan
+   style="fill:#0044aa"
+   id="tspan1284">float</tspan> distance(<tspan
+   style="fill:#0044aa"
+   id="tspan1286">Point</tspan> a, <tspan
+   style="fill:#0044aa"
+   id="tspan1288">Point</tspan> b)</tspan><tspan
+         sodipodi:role="line"
+         x="114.97796"
+         y="169.68074"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1390">{</tspan><tspan
+         sodipodi:role="line"
+         x="114.97796"
+         y="173.27791"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1392">    <tspan
+   style="fill:#0044aa"
+   id="tspan1290">Point</tspan> c = {a.x - b.x, a.y - b.y};</tspan><tspan
+         sodipodi:role="line"
+         x="114.97796"
+         y="176.87508"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1394">    <tspan
+   style="fill:#0044aa"
+   id="tspan1292">return</tspan> sqrt(c.x * c.x + c.y * c.y);</tspan><tspan
+         sodipodi:role="line"
+         x="114.97796"
+         y="180.47224"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1396">}</tspan></text>
+    <rect
+       ry="0.010079523"
+       y="104.26128"
+       x="111.73223"
+       height="38.040199"
+       width="71.264221"
+       id="rect1154"
+       style="display:inline;opacity:1;fill:#80e5ff;fill-opacity:0.04705882;stroke:#000600;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none" />
+    <text
+       transform="scale(1.0000292,0.9999708)"
+       id="text1161"
+       y="101.81811"
+       x="112.39046"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.45835066px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;stroke-width:0.19546865"
+       xml:space="preserve"><tspan
+         id="tspan1157"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="101.81811"
+         x="112.39046"
+         sodipodi:role="line">point.h</tspan><tspan
+         id="tspan1159"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="101.81811"
+         x="112.39046"
+         sodipodi:role="line" /></text>
+    <text
+       transform="scale(1.0000292,0.9999708)"
+       id="text1177"
+       y="109.79098"
+       x="115.27766"
+       style="font-size:3.45835066px;line-height:1;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;stroke-width:0.19546865"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="109.79098"
+         x="115.27766"
+         sodipodi:role="line"
+         id="tspan1195"><tspan
+   style="fill:#2ca089"
+   id="tspan1320">#pragma</tspan> once</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="113.38815"
+         x="115.27766"
+         sodipodi:role="line"
+         id="tspan1350"><tspan
+   style="fill:#0044aa"
+   id="tspan1324">struct</tspan> <tspan
+   style="fill:#0044aa"
+   id="tspan1326">point</tspan></tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="116.98532"
+         x="115.27766"
+         sodipodi:role="line"
+         id="tspan1352">{</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="120.58249"
+         x="115.27766"
+         sodipodi:role="line"
+         id="tspan1354">    <tspan
+   style="fill:#0044aa"
+   id="tspan1328">float</tspan> x;</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="124.17966"
+         x="115.27766"
+         sodipodi:role="line"
+         id="tspan1356">    <tspan
+   style="fill:#0044aa"
+   id="tspan1330">float</tspan> y;</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="127.77683"
+         x="115.27766"
+         sodipodi:role="line"
+         id="tspan1358">};</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="131.37399"
+         x="115.27766"
+         sodipodi:role="line"
+         id="tspan1360"><tspan
+   style="fill:#0044aa"
+   id="tspan1332">typedef struct point Point</tspan>;</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="134.83235"
+         x="115.27766"
+         sodipodi:role="line"
+         id="tspan1362" /><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="138.42952"
+         x="115.27766"
+         sodipodi:role="line"
+         id="tspan1364"><tspan
+   style="fill:#0044aa"
+   id="tspan1334">float</tspan> distance(<tspan
+   style="fill:#0044aa"
+   id="tspan1336">Point</tspan>, <tspan
+   style="fill:#0044aa"
+   id="tspan1338">Point</tspan>);</tspan></text>
+    <rect
+       style="display:inline;opacity:1;fill:#80e5ff;fill-opacity:0.04705882;stroke:#000600;stroke-width:0.19999997;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1075-5-4-6"
+       width="115.48743"
+       height="43.005203"
+       x="10.960843"
+       y="192.96306"
+       ry="0.011395103" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.45835066px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;stroke-width:0.19546865"
+       x="11.622033"
+       y="190.99695"
+       id="text1079-6-0-9"
+       transform="scale(1.0000292,0.9999708)"><tspan
+         sodipodi:role="line"
+         x="11.622033"
+         y="190.99695"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1272-4">area.с</tspan><tspan
+         sodipodi:role="line"
+         x="11.622033"
+         y="190.99695"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1081-8-8-5" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.45835066px;line-height:1;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;stroke-width:0.19546865"
+       x="14.509217"
+       y="197.83585"
+       id="text1076-8-6-2"
+       transform="scale(1.0000292,0.9999708)"><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="197.83585"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1138-2-4-9"><tspan
+   style="fill:#2ca089"
+   id="tspan1247">#include</tspan> <tspan
+   style="fill:#c8a000"
+   id="tspan1253">&lt;math.h&gt;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="201.43301"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1437"><tspan
+   style="fill:#2ca089"
+   id="tspan1249">#include</tspan> <tspan
+   style="fill:#c8a000"
+   id="tspan1251">&quot;point.h&quot;</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="204.89137"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1439" /><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="208.48854"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1441"><tspan
+   style="fill:#0044aa"
+   id="tspan1255">float</tspan> triangle_area(<tspan
+   style="fill:#0044aa"
+   id="tspan1259">Point</tspan> a, <tspan
+   style="fill:#0044aa"
+   id="tspan1263">Point</tspan> b, <tspan
+   style="fill:#0044aa"
+   id="tspan1261">Point</tspan> c)</tspan><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="212.08571"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1443">{</tspan><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="215.68288"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1445">    <tspan
+   style="fill:#0044aa"
+   id="tspan1265">float</tspan> sa = distance(b, c);</tspan><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="219.28004"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1447">    <tspan
+   style="fill:#0044aa"
+   id="tspan1267">float</tspan> sb = distance(c, a);</tspan><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="222.87721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1449">    <tspan
+   style="fill:#0044aa"
+   id="tspan1269">float</tspan> sc = distance(a, b);</tspan><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="226.4744"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1451">    <tspan
+   style="fill:#0044aa"
+   id="tspan1271">float</tspan> p = (sa + sb + sc) / <tspan
+   style="fill:#008000"
+   id="tspan1296">2.0f</tspan>;</tspan><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="230.07156"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1453">    <tspan
+   style="fill:#0044aa"
+   id="tspan1274">return</tspan> sqrt(p * (p - sa) * (p - sb) * (p - sc));</tspan><tspan
+         sodipodi:role="line"
+         x="14.509217"
+         y="233.66873"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         id="tspan1455">}</tspan></text>
+    <rect
+       ry="0.0042287651"
+       y="168.98349"
+       x="10.636989"
+       height="15.959391"
+       width="92.241898"
+       id="rect1154-8"
+       style="display:inline;opacity:1;fill:#80e5ff;fill-opacity:0.04705882;stroke:#000600;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none" />
+    <text
+       transform="scale(1.0000292,0.9999708)"
+       id="text1161-8"
+       y="167.18004"
+       x="11.298186"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.45835066px;line-height:0;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;stroke-width:0.19546865"
+       xml:space="preserve"><tspan
+         id="tspan1157-0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="167.18004"
+         x="11.298186"
+         sodipodi:role="line">area.h</tspan><tspan
+         id="tspan1159-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="167.18004"
+         x="11.298186"
+         sodipodi:role="line" /></text>
+    <text
+       transform="scale(1.0000292,0.9999708)"
+       id="text1177-8"
+       y="174.51505"
+       x="14.18537"
+       style="font-size:3.45835066px;line-height:1;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;stroke-width:0.19546865"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="174.51505"
+         x="14.18537"
+         sodipodi:role="line"
+         id="tspan1415"><tspan
+   style="fill:#2ca089"
+   id="tspan1237">#pragma</tspan> once</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="178.11221"
+         x="14.18537"
+         sodipodi:role="line"
+         id="tspan1287"><tspan
+   style="fill:#2ca089"
+   id="tspan1291">#include</tspan> <tspan
+   style="fill:#c8a000"
+   id="tspan1293">&quot;point.h&quot;</tspan></tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:1;font-family:'Source Code Pro';-inkscape-font-specification:'Source Code Pro';stroke-width:0.19546865"
+         y="181.70938"
+         x="14.18537"
+         sodipodi:role="line"
+         id="tspan1417"><tspan
+   style="fill:#0044aa"
+   id="tspan1239">float</tspan> triangle_area(<tspan
+   style="fill:#0044aa"
+   id="tspan1241">Point</tspan>, <tspan
+   style="fill:#0044aa"
+   id="tspan1243">Point</tspan>, <tspan
+   style="fill:#0044aa"
+   id="tspan1245">Point</tspan>);</tspan></text>
+  </g>
+</svg>
