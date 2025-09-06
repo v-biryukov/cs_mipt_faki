@@ -22,8 +22,3 @@ int main()
     printf("%i\n", a);
     printf("%i\n", b);
 }
-
-
-
-
-
