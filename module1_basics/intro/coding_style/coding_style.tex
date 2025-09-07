@@ -1,0 +1,238 @@
+\documentclass{article}
+\usepackage[english,russian]{babel}
+\usepackage{textcomp}
+\usepackage{geometry}
+  \geometry{left=2cm}
+  \geometry{right=1.5cm}
+  \geometry{top=1.5cm}
+  \geometry{bottom=2cm}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+\pagenumbering{gobble}
+
+\lstset{
+  language=C,
+  basicstyle=\linespread{1.1}\ttfamily,
+  columns=fixed,
+  basewidth=0.5em,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\ttfamily\color{orange!50!black},
+  showstringspaces=false,
+  backgroundcolor=\color{white},
+  breaklines=true,
+  breakatwhitespace=true,
+  xleftmargin=5mm,
+  keepspaces = true,
+  extendedchars=\true,
+  tabsize=4,
+  upquote=true,
+}
+
+\lstdefinestyle{csMiptBash}{
+breaklines=true,
+frame=tb,
+language=bash,
+breakatwhitespace=true,
+alsoletter={*()"'0123456789.},
+alsoother={\{\=\}},
+basicstyle={\ttfamily},
+keywordstyle={\bfseries},
+literate={{=}{{{=}}}1},
+prebreak={\textbackslash},
+sensitive=true,
+stepnumber=1,
+tabsize=4,
+morekeywords={echo, function},
+otherkeywords={-, \{, \}},
+literate={\$\{}{{{{\bfseries{}\$\{}}}}2,
+upquote=true,
+frame=none
+}
+
+
+\definecolor{correctcolor}{RGB}{247, 255, 247}
+\definecolor{wrongcolor}{RGB}{255, 247, 247}
+
+
+\begin{document}
+
+\title{Правила оформления программ на языке C в данном курсе.}\date{}\maketitle
+\subsection*{Стиль наименования идентификаторов}
+Самые распространённые стили наименования идентификаторов это:
+\begin{verbatim}
+                 camelCase                 PascalCase              snake_case    
+\end{verbatim}
+Для языка C будем использовать \texttt{snake\_case} для почти всего, кроме названий новых типов. Для них будем использовать \texttt{Pascal\_Snake\_Case}.
+
+
+\subsection*{Стиль расстановки скобок}
+Можете использовать один из двух следующих вариантов расстановки скобок. Любые другие варианты будут считаться ошибкой оформления.
+\vspace{-7mm}
+\begin{multicols}{2}
+\begin{lstlisting}[backgroundcolor = \color{correctcolor}]
+int print_numbers(int n)
+{
+    while (n > 0)
+    {
+        cout << i << " ";
+        n--;
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[backgroundcolor = \color{correctcolor}]
+int print_numbers(int n) {
+    while (n > 0) {
+        cout << i << " ";
+        n--;
+    }
+}
+\end{lstlisting}
+
+\end{multicols}
+
+
+
+\subsection*{Стиль отступов для однострочной области видимости}
+В случае если тело области видимости состоит из одной строки, то скобки можно не писать.
+\vspace{-2mm}
+\begin{multicols}{2}
+\begin{lstlisting}[backgroundcolor = \color{correctcolor}]
+int calculate_sum(int n)
+{
+    int sum = 0;
+    for (int i = 0; i < n; ++i)
+        sum += i;
+        
+    return sum;
+}
+\end{lstlisting}
+\vfill
+\begin{lstlisting}[backgroundcolor = \color{correctcolor}]
+int calculate_sum(int n)
+{
+    int sum = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        sum += i;
+    }
+    return sum;
+}
+\end{lstlisting}
+\end{multicols}
+Исключение -- если одна из областей видимости оператора \texttt{if else} состоит из более чем одной строки, то все остальные области видимости этого операторы должны обрамляться скобочками.
+\begin{multicols}{2}
+\noindent
+\begin{lstlisting}[backgroundcolor = \color{correctcolor}]
+if (a > b)
+{
+    c = a;
+}
+else
+{
+    c = b;
+}
+\end{lstlisting}
+\vfill
+\begin{lstlisting}[backgroundcolor = \color{wrongcolor}]
+if (a > b)
+{
+    c = a;
+}
+else
+    c = b;
+\end{lstlisting}
+\end{multicols}
+
+\subsection*{Пробелы после запятых}
+После запятой или точки запятой обязательно ставится пробел. До запятой или точки с запятой пробел не ставится.
+
+\vspace{-7mm}
+\begin{multicols}{2}
+\begin{lstlisting}[backgroundcolor = \color{correctcolor}]
+int func(int a, int b)
+{
+    for (int i = a; i < b; ++i)
+        printf("%i %i\n", a, b);
+}
+\end{lstlisting}
+
+\begin{lstlisting}[backgroundcolor = \color{wrongcolor}]
+int func(int a,int b)
+{
+    for (int i = a;i < b;++i)
+        printf("%i %i\n",a,b);
+}
+\end{lstlisting}
+\end{multicols}
+
+
+\subsection*{Пробелы до и после бинарных операторов}
+До и после бинарного оператора нужно обязательно ставить пробелы.
+\vspace{-7mm}
+\begin{multicols}{2}
+\begin{lstlisting}[backgroundcolor = \color{correctcolor}]
+int a = 10;
+int b = 20;
+int c = a + b;
+int d;
+d = a + b * c;
+\end{lstlisting}
+
+\begin{lstlisting}[backgroundcolor = \color{wrongcolor}]
+int a = 10;
+int b = 20;
+int c = a+b;
+int d;
+d = a + b*c;
+\end{lstlisting}
+\end{multicols}
+
+
+\subsection*{Отступы}
+В качестве отступов используется ровно 4 пробела, а не знак табуляции.
+Настройте ваш текстовый редактор при нажатии на \texttt{Tab} вставлял 4 пробела а не знак табуляции.
+Причина, по которой желательно использовать пробелы, заключается в том, что символ табуляции может отображаться по-разному в различных программах и настройках редактора. Если вы случайно смешаете пробелы с табами в одном файле, то при открытии кода в другом редакторе все отступы "поедут" и структура кода нарушится.
+
+
+
+\subsection*{Объявление несколько переменных на одной строке}
+Запрещено объявлять несколько переменных на одной строке.
+\vspace{-7mm}
+\begin{multicols}{2}
+\begin{lstlisting}[backgroundcolor = \color{correctcolor}]
+int position = 100;
+int velocity = 2;
+\end{lstlisting}
+
+\begin{lstlisting}[backgroundcolor = \color{wrongcolor}]
+int position = 100, velocity = 2;
+\end{lstlisting}
+\end{multicols}
+
+\subsection*{Объявление указателей}
+При объявлении указателей звёздочка обязательно ставится рядом с названием типа.
+\begin{multicols}{3}
+\noindent
+\begin{lstlisting}[backgroundcolor = \color{correctcolor}]
+int a = 100;
+int* p = &a;
+\end{lstlisting}
+\begin{lstlisting}[backgroundcolor = \color{wrongcolor}]
+int a = 100;
+int *p = &a;
+\end{lstlisting}
+\begin{lstlisting}[backgroundcolor = \color{wrongcolor}]
+int a = 100;
+int * p = &a;
+\end{lstlisting}
+\end{multicols}
+
+
+
+
+\end{document}
