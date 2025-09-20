@@ -1,106 +1,91 @@
 \documentclass{article}
-\usepackage[utf8x]{inputenc}
-\usepackage{ucs}
-\usepackage{amsmath} 
-\usepackage{amsfonts}
-\usepackage{marvosym}
-\usepackage{wasysym}
-\usepackage{upgreek}
 \usepackage[english,russian]{babel}
-\usepackage{graphicx}
-\usepackage{float}
 \usepackage{textcomp}
-\usepackage{hyperref}
 \usepackage{geometry}
   \geometry{left=2cm}
   \geometry{right=1.5cm}
-  \geometry{top=1cm}
+  \geometry{top=1.5cm}
   \geometry{bottom=2cm}
 \usepackage{tikz}
-\usepackage{ccaption}
 \usepackage{multicol}
-\usepackage[shortlabels]{enumitem}
-
-\hypersetup{
-   colorlinks=true,
-   citecolor=blue,
-   linkcolor=black,
-   urlcolor=blue
-}
-
+\usepackage{hyperref}
+\usepackage{amsmath}
 \usepackage{listings}
-%\setlength{\columnsep}{1.5cm}
-%\setlength{\columnseprule}{0.2pt}
-
-\usepackage[absolute]{textpos}
-
-
-\usepackage{colortbl,graphicx,tikz}
-\definecolor{X}{rgb}{.5,.5,.5}
-
-\renewcommand{\thesubsection}{\arabic{subsection}}
-
-\begin{document}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage[shortlabels]{enumitem}
 \pagenumbering{gobble}
-\lstset{
-  language=C,                % choose the language of the code
+
+\lstdefinestyle{CStyle}{
+  language=C,
   basicstyle=\linespread{1.1}\ttfamily,
-  columns=fixed,
-  fontadjust=true,
   basewidth=0.5em,
+  texcl=true,
   keywordstyle=\color{blue}\bfseries,
   commentstyle=\color{gray},
   stringstyle=\ttfamily\color{orange!50!black},
   showstringspaces=false,
-  numbersep=5pt,
-  numberstyle=\tiny\color{black},
-  numberfirstline=true,
-  stepnumber=1,                   % the step between two line-numbers.        
-  numbersep=10pt,                  % how far the line-numbers are from the code
-  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
-  showstringspaces=false,         % underline spaces within strings
-  captionpos=b,                   % sets the caption-position to bottom
-  breaklines=true,                % sets automatic line breaking
-  breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
-  xleftmargin=.2in,
-  extendedchars=\true,
+  backgroundcolor=\color{white},
+  breaklines=true,
+  breakatwhitespace=true,
+  xleftmargin=5mm,
   keepspaces = true,
+  extendedchars=\true,
+  tabsize=4,
+  upquote=true,
+  emph={size_t, NULL},
+  emphstyle={\color{blue}\bfseries},
 }
-\lstset{literate=%
-   *{0}{{{\color{red!20!violet}0}}}1
-    {1}{{{\color{red!20!violet}1}}}1
-    {2}{{{\color{red!20!violet}2}}}1
-    {3}{{{\color{red!20!violet}3}}}1
-    {4}{{{\color{red!20!violet}4}}}1
-    {5}{{{\color{red!20!violet}5}}}1
-    {6}{{{\color{red!20!violet}6}}}1
-    {7}{{{\color{red!20!violet}7}}}1
-    {8}{{{\color{red!20!violet}8}}}1
-    {9}{{{\color{red!20!violet}9}}}1
+
+\lstdefinestyle{longCodeStyle}{
+  style=CStyle,
+  framexleftmargin=5mm, 
+  frame=shadowbox, 
+  rulesepcolor=\color{gray}
 }
+
+\lstset{style=CStyle}
+
 
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \makeatletter
 \def\@seccntformat#1{\@ifundefined{#1@cntformat}%
-   {\csname the#1\endcsname\quad}%    default
-   {\csname #1@cntformat\endcsname}}% enable individual control
-\newcommand\section@cntformat{}     % section level 
-\newcommand\subsection@cntformat{Задача \thesubsection.\space} % subsection level
-\newcommand\subsubsection@cntformat{\thesubsubsection.\space} % subsubsection level
+   {\csname the#1\endcsname\quad}
+   {\csname #1@cntformat\endcsname}}
+\newcommand\section@cntformat{}
+\newcommand\subsection@cntformat{Задача \thesubsection.\space}
+\newcommand\subsubsection@cntformat{\thesubsubsection.\space}
 \makeatother
 
 
-\makeatletter
-\newcount\my@repeat@count
-\newcommand{\myrepeat}[2]{%
-  \begingroup
-  \my@repeat@count=\z@
-  \@whilenum\my@repeat@count<#1\do{#2\advance\my@repeat@count\@ne}%
-  \endgroup
-}
-\makeatother
+\begin{document}
 
 \title{Семинар \#3: Строки. Домашнее задание.\vspace{-5ex}}\date{}\maketitle
+
+\subsection{Коды и символы}
+Что напечатает данная программа?
+\begin{lstlisting}
+#include <stdio.h>
+int main()
+{
+	printf("%i\n", '>');
+	printf("%i\n", '1');
+	printf("%i\n", '\0');
+	printf("%i\n", '\n');
+	printf("%i\n", '4' * '2');
+	printf("%i\n", '7' - '0');
+	printf("%c\n", 't' - 32);
+	printf("%c\n", 'X' + 'a' - 'A');
+}
+\end{lstlisting}
+Для того, чтобы сдать данную программу вам будем нужно создать текстовый файл \texttt{.txt}, записать туда все ответы и отправить этот файл в ваш репозиторий.
+
+\subsection{Печать всех символов}
+Напишите программу, которая будет печатать на экран все символы с кодами от 32 до 126 в формате:
+\begin{verbatim}
+    Symbol = A, Code = 65
+\end{verbatim}
+                
 
 \subsection{Тип символа}
 Напишите программу, которая будет считывать символ и печатать:
@@ -134,6 +119,17 @@
 \end{center}
 
 
+\subsection{Сумма цифр}
+На вход программе поступает число из диапазона от $0$ до $10^{10^8}$. Найти сумму цифр этого числа 
+\begin{center}
+\begin{tabular}{ l | l }
+ вход & выход \\ \hline
+ \texttt{0} & \texttt{0}  \\ 
+ \texttt{123} & \texttt{6} \\
+ \texttt{9999999999999999999999999} & \texttt{225} \\
+\end{tabular}
+\end{center}
+
 
 \subsection{Палиндром}
 Написать функцию \texttt{is\_palindrom}, которая будет принимать строку и проверять является ли эта строка палидромом.
@@ -163,6 +159,7 @@
 \end{center}
 \end{multicols}
 
+
 \subsection{Шифр Цезаря}
 Шифр Цезаря — это вид шифра подстановки, в котором каждый символ заменяется символом, находящимся на некотором постоянном числе позиций левее или правее него в алфавите. 
 \begin{center}
@@ -180,11 +177,29 @@
 \end{center}
 
 
+\subsection{Ошибка в считывании}
+Если в этой программе ввести число, нажать \texttt{Enter} и ввести строку, то произойдёт ошибка. Почему? Исправьте эту ошибку.
+\begin{lstlisting}
+#include <stdio.h>
+int main()
+{
+    int a;
+    scanf("%i", &a);
+    printf("a = %i\n", a);
+
+    char str[100];
+    scanf("%[^\n]", str);
+    printf("str = %s\n", str);
+}
+\end{lstlisting}
+
+
+
 \subsection{Укоротить строку}
 Напишите функцию \texttt{void trim\_after\_first\_space(char str[])}, которая будет принимать на строку и укорачивать её до первого пробела. Протестируйте функцию с помощью следующего кода:
 \begin{lstlisting}
 #include <stdio.h>
-// Тут вам нужно написать функцию trim_after_first_space
+// Тут вам нужно написать функцию trim\_after\_first\_space
 int main() 
 {
     char a[] = "Cats and Dogs";
@@ -229,7 +244,7 @@ strcpy(a, b); // UB, выйдет за пределы массива a
 \begin{lstlisting}
 char a[10] = "Mouse";
 char b[50] = "LargeElephant";
-safe_strcpy(a, 10, b); // OK, строка a будет равна "LargeElep\0"
+safe_strcpy(a, 10, b); // OK, строка a будет равна "LargeElep\textbackslash 0"
 \end{lstlisting}
 
 
@@ -272,6 +287,8 @@ axolotl cat elephant lion mouse
 
 
 
+\newpage
+~
 \newpage
 \section*{Необязательные задачи (не входят в ДЗ, никак не учитываются)}
 \setcounter{subsection}{0}
